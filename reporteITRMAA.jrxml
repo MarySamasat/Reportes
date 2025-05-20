@@ -21,6 +21,13 @@
 	<parameter name="pathImagen" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+	<parameter name="SUBREPORT_CIUDAD" class="net.sf.jasperreports.engine.JasperReport">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_ADJUNTOS" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="SUBREPORT_TECNICOS" class="net.sf.jasperreports.engine.JasperReport">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[select * from TE_FORMULARIO_ITR_RMAA where  itr_rmaa_OrdenTrabajo = $P{codigoOrdenServicio} and itr_rmaa_codigo_formulario = $P{codigoFormulario}]]>
 	</queryString>
@@ -691,7 +698,7 @@
 		<property name="com.jaspersoft.studio.field.tree.path" value="TE_FORMULARIO_ITR_RMAA"/>
 	</field>
 	<group name="grupo1">
-		<groupExpression><![CDATA[$F{itr_rmaa_FormularioOrdenTrabajo}]]></groupExpression>
+		<groupExpression><![CDATA[$F{itr_rmaa_OrdenTrabajo}]]></groupExpression>
 		<groupHeader>
 			<band height="802">
 				<rectangle>
@@ -723,7 +730,7 @@
 					<textElement>
 						<font size="7" isBold="true"/>
 					</textElement>
-					<text><![CDATA[QUITO: 250-7219 / 250-7220 FAX: 250-9488]]></text>
+					<text><![CDATA[QUITO: (593)25103076 / (593)99292 5883]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="270" y="76" width="166" height="19" forecolor="#FFFFFF" uuid="1cb0c1f2-1b9a-442a-9c15-9c6e9f83ddfc">
@@ -732,7 +739,7 @@
 					<textElement>
 						<font size="7" isBold="true"/>
 					</textElement>
-					<text><![CDATA[GUAYAQUIL: 228-4800 / 282-2564 FAX 229-2388]]></text>
+					<text><![CDATA[GUAYAQUIL: (593) 4 505 0123]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="474" y="76" width="71" height="19" forecolor="#FFFFFF" uuid="b068c268-b033-4a34-aae5-d6b597db83c5">
@@ -804,15 +811,15 @@
 					<textElement>
 						<font size="9"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{informe_orden_servico_numero}.equals("") ? $F{informe_orden_servico_numero} : $F{informe_orden_cod_doc}+ "-"+$F{informe_orden_servico_numero}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_OrdenTrabajo}]]></textFieldExpression>
 				</textField>
 				<subreport>
 					<reportElement x="341" y="99" width="200" height="20" uuid="9af40a46-b671-4b6a-a80e-d0e6d92c6b64"/>
 					<subreportParameter name="codigoCiudad">
-						<subreportParameterExpression><![CDATA[$F{itr_rmaa_FormularioCiudad}]]></subreportParameterExpression>
+						<subreportParameterExpression><![CDATA[$F{itr_rmaa_ciudad}]]></subreportParameterExpression>
 					</subreportParameter>
 					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subReporteCiudad.jasper"]]></subreportExpression>
+					<subreportExpression><![CDATA[$P{SUBREPORT_CIUDAD}]]></subreportExpression>
 				</subreport>
 				<staticText>
 					<reportElement x="4" y="140" width="87" height="20" uuid="07388ee6-6715-477f-b325-8b4725cf243a"/>
@@ -829,42 +836,42 @@
 					<textFieldExpression><![CDATA[$F{itr_rmaa_Cliente}]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement x="4" y="182" width="87" height="20" uuid="9b1e2b91-7e02-4986-bb99-4c9bddd21356"/>
+					<reportElement x="4" y="161" width="87" height="20" uuid="9b1e2b91-7e02-4986-bb99-4c9bddd21356"/>
 					<textElement>
 						<font size="9" isBold="true"/>
 					</textElement>
 					<text><![CDATA[Teléfono:]]></text>
 				</staticText>
 				<textField isBlankWhenNull="true">
-					<reportElement x="93" y="182" width="455" height="20" uuid="cc82d8f0-fc9d-4ef6-ac7e-8a9fad5b4b84"/>
+					<reportElement x="93" y="161" width="455" height="20" uuid="cc82d8f0-fc9d-4ef6-ac7e-8a9fad5b4b84"/>
 					<textElement>
 						<font size="9"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{itr_rmaa_Telefono}]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement x="4" y="203" width="87" height="20" uuid="65672c42-3fb1-4b29-ae0b-f4586994a718"/>
+					<reportElement x="4" y="182" width="87" height="20" uuid="65672c42-3fb1-4b29-ae0b-f4586994a718"/>
 					<textElement>
 						<font size="9" isBold="true"/>
 					</textElement>
 					<text><![CDATA[Email:]]></text>
 				</staticText>
 				<textField isBlankWhenNull="true">
-					<reportElement x="93" y="203" width="455" height="20" uuid="31844a43-5b0c-4e59-b01a-9a7c9f33aae3"/>
+					<reportElement x="93" y="182" width="455" height="20" uuid="31844a43-5b0c-4e59-b01a-9a7c9f33aae3"/>
 					<textElement>
 						<font size="9"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Fax}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_email_contacto2}]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement x="4" y="224" width="87" height="20" uuid="cf66ecb1-3073-4bda-be4a-dfba91a822b6"/>
+					<reportElement x="4" y="203" width="87" height="20" uuid="cf66ecb1-3073-4bda-be4a-dfba91a822b6"/>
 					<textElement>
 						<font size="9" isBold="true"/>
 					</textElement>
 					<text><![CDATA[Dirección:]]></text>
 				</staticText>
 				<textField isBlankWhenNull="true">
-					<reportElement x="93" y="224" width="456" height="20" uuid="b9513e32-f6b8-4e14-8c80-bcb205953bd3"/>
+					<reportElement x="93" y="203" width="456" height="20" uuid="b9513e32-f6b8-4e14-8c80-bcb205953bd3"/>
 					<textElement>
 						<font size="9"/>
 					</textElement>
@@ -882,20 +889,6 @@
 					</textElement>
 					<text><![CDATA[MEDICIONES]]></text>
 				</staticText>
-				<staticText>
-					<reportElement x="4" y="161" width="87" height="20" uuid="e0b5ab51-1bcd-4bb5-9d3d-7e4a1ef93f08"/>
-					<textElement>
-						<font size="9" isBold="true"/>
-					</textElement>
-					<text><![CDATA[Contacto:]]></text>
-				</staticText>
-				<textField isBlankWhenNull="true">
-					<reportElement x="93" y="161" width="455" height="20" uuid="a4b6460d-f150-4fdb-a1ff-629396dba05f"/>
-					<textElement>
-						<font size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_contacto}]]></textFieldExpression>
-				</textField>
 				<rectangle>
 					<reportElement x="0" y="281" width="555" height="298" backcolor="#FFFFFF" uuid="2b96be24-54d6-42a7-baa8-47def23fc124">
 						<property name="com.jaspersoft.studio.unit.width" value="px"/>
@@ -1033,7 +1026,7 @@
 				</textField>
 				<ellipse>
 					<reportElement x="292" y="307" width="17" height="17" backcolor="#FF3333" uuid="77ad3087-e6e1-4125-b3bf-367c3c1c4e2a">
-						<printWhenExpression><![CDATA[$F{itr_rmaa_FormularioPuntajeParam2}.equals( "2" )]]></printWhenExpression>
+						<printWhenExpression><![CDATA[$F{itr_rmaa_puntaje_param_2}.equals( "2" )]]></printWhenExpression>
 					</reportElement>
 				</ellipse>
 				<rectangle>
@@ -1044,7 +1037,7 @@
 				</rectangle>
 				<ellipse>
 					<reportElement x="268" y="329" width="17" height="17" backcolor="#FF3333" uuid="203febc8-1c16-48b6-a92a-b57b91f0136e">
-						<printWhenExpression><![CDATA[$F{itr_rmaa_FormularioPuntajeParam3}.equals( "1" )]]></printWhenExpression>
+						<printWhenExpression><![CDATA[$F{itr_rmaa_puntaje_param_3}.equals( "1" )]]></printWhenExpression>
 					</reportElement>
 				</ellipse>
 				<rectangle>
@@ -1058,7 +1051,7 @@
 				</line>
 				<ellipse>
 					<reportElement x="317" y="287" width="17" height="17" backcolor="#FF3333" uuid="8eb558fe-7468-4dad-942c-a8e152189cfb">
-						<printWhenExpression><![CDATA[$F{itr_rmaa_FormularioPuntajeParam1}.equals( "3" )]]></printWhenExpression>
+						<printWhenExpression><![CDATA[$F{itr_rmaa_puntaje_param_1}.equals( "3" )]]></printWhenExpression>
 					</reportElement>
 				</ellipse>
 				<line>
@@ -1069,12 +1062,12 @@
 				</line>
 				<ellipse>
 					<reportElement x="268" y="307" width="17" height="17" backcolor="#FF3333" uuid="ae73226f-f525-42f8-b47e-08f19af4e8fb">
-						<printWhenExpression><![CDATA[$F{itr_rmaa_FormularioPuntajeParam2}.equals( "1" )]]></printWhenExpression>
+						<printWhenExpression><![CDATA[$F{itr_rmaa_puntaje_param_2}.equals( "1" )]]></printWhenExpression>
 					</reportElement>
 				</ellipse>
 				<ellipse>
 					<reportElement x="317" y="329" width="17" height="17" backcolor="#FF3333" uuid="d1f3525a-37f1-494d-ad58-ffa0e29d09ec">
-						<printWhenExpression><![CDATA[$F{itr_rmaa_FormularioPuntajeParam3}.equals( "3" )]]></printWhenExpression>
+						<printWhenExpression><![CDATA[$F{itr_rmaa_puntaje_param_3}.equals( "3" )]]></printWhenExpression>
 					</reportElement>
 				</ellipse>
 				<staticText>
@@ -1094,7 +1087,7 @@
 				</staticText>
 				<ellipse>
 					<reportElement x="292" y="287" width="17" height="17" backcolor="#FF3333" uuid="c143490b-d5ad-4045-8c9f-41f21ffbf965">
-						<printWhenExpression><![CDATA[$F{itr_rmaa_FormularioPuntajeParam1}.equals( "2" )]]></printWhenExpression>
+						<printWhenExpression><![CDATA[$F{itr_rmaa_puntaje_param_1}.equals( "2" )]]></printWhenExpression>
 					</reportElement>
 				</ellipse>
 				<staticText>
@@ -1106,7 +1099,7 @@
 				</staticText>
 				<ellipse>
 					<reportElement x="317" y="307" width="17" height="17" backcolor="#FF3333" uuid="3ef25019-bc84-41b8-8bda-6dc869977baa">
-						<printWhenExpression><![CDATA[$F{itr_rmaa_FormularioPuntajeParam2}.equals( "3" )]]></printWhenExpression>
+						<printWhenExpression><![CDATA[$F{itr_rmaa_puntaje_param_2}.equals( "3" )]]></printWhenExpression>
 					</reportElement>
 				</ellipse>
 				<staticText>
@@ -1118,7 +1111,7 @@
 				</staticText>
 				<ellipse>
 					<reportElement x="292" y="329" width="17" height="17" backcolor="#FF3333" uuid="a424bd52-490b-4e25-9685-33d6483d5d1e">
-						<printWhenExpression><![CDATA[$F{itr_rmaa_FormularioPuntajeParam3}.equals( "2" )]]></printWhenExpression>
+						<printWhenExpression><![CDATA[$F{itr_rmaa_puntaje_param_3}.equals( "2" )]]></printWhenExpression>
 					</reportElement>
 				</ellipse>
 				<staticText>
@@ -1130,12 +1123,12 @@
 				</staticText>
 				<ellipse>
 					<reportElement x="268" y="287" width="17" height="17" backcolor="#FF3333" uuid="061930b0-7d94-42e8-a0c2-7d98793f5d33">
-						<printWhenExpression><![CDATA[$F{itr_rmaa_FormularioPuntajeParam1}.equals( "1" )]]></printWhenExpression>
+						<printWhenExpression><![CDATA[$F{itr_rmaa_puntaje_param_1}.equals( "1" )]]></printWhenExpression>
 					</reportElement>
 				</ellipse>
 				<ellipse>
 					<reportElement x="292" y="307" width="17" height="17" backcolor="#FF3333" uuid="69092e16-afc2-43c4-b4b7-dac8ff2d1586">
-						<printWhenExpression><![CDATA[$F{itr_rmaa_FormularioPuntajeParam2}.equals( "1" )]]></printWhenExpression>
+						<printWhenExpression><![CDATA[$F{itr_rmaa_puntaje_param_2}.equals( "1" )]]></printWhenExpression>
 					</reportElement>
 				</ellipse>
 				<staticText>
@@ -1192,7 +1185,7 @@
 					<textElement>
 						<font isUnderline="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_FormularioPuntajeSugerencias}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_sugerencias_comentarios}]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement x="5" y="425" width="110" height="20" uuid="31d4f8f1-6906-4b9a-b67b-cbeb6e3d916e"/>
@@ -1210,19 +1203,19 @@
 				</staticText>
 				<image>
 					<reportElement x="155" y="445" width="247" height="148" uuid="a8b82800-85f4-4ac8-859f-034ea59d5ada"/>
-					<imageExpression><![CDATA[new File($P{pathImagen},$F{itr_rmaa_FormularioRepresentanteClienteFirma})]]></imageExpression>
+					<imageExpression><![CDATA[new File($P{pathImagen},$F{itr_rmaa_representante_firma})]]></imageExpression>
 				</image>
 				<textField isBlankWhenNull="true">
 					<reportElement positionType="Float" x="111" y="689" width="100" height="20" uuid="5491c361-f973-40a7-912a-91c086b35921"/>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_FormularioRepresentanteFirmesaTiempoAntesala}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_tiempo_antesala}]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
 					<reportElement x="131" y="425" width="415" height="20" uuid="f08bc36b-b4fa-4fc3-ba71-0fc5800a8d1b"/>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_FormularioRepresentanteClienteFirma}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_representante_firma}]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
 					<reportElement x="131" y="405" width="415" height="20" uuid="e187ed28-b7c5-49e3-add7-795b82e99329"/>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_FormularioRepresentanteClienteCargo}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_representante_cargo}]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement positionType="Float" x="9" y="689" width="100" height="20" uuid="cb3a0c45-df3f-48ef-8cbe-625dc76352f9"/>
@@ -1233,11 +1226,11 @@
 				</staticText>
 				<textField isBlankWhenNull="true">
 					<reportElement positionType="Float" x="365" y="709" width="100" height="20" uuid="83b9dffd-3aca-403c-9fe4-be6a7e5c39cd"/>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_FormularioRepresentanteFirmesaHoraFin}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_hora_fin}]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
 					<reportElement positionType="Float" x="111" y="709" width="100" height="20" uuid="4ec3edca-8af1-47bc-8a0f-aa0c363ac232"/>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_FormularioRepresentanteFirmesaHoraInicio}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_hora_inicio}]]></textFieldExpression>
 				</textField>
 				<subreport>
 					<reportElement positionType="Float" x="5" y="639" width="514" height="33" uuid="33f8f81f-3e44-4b47-9a8b-dbf84afada53"/>
@@ -1245,7 +1238,7 @@
 						<subreportParameterExpression><![CDATA[$P{codigoFormulario}]]></subreportParameterExpression>
 					</subreportParameter>
 					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subReporteTecnicos.jasper"]]></subreportExpression>
+					<subreportExpression><![CDATA[$P{SUBREPORT_TECNICOS}]]></subreportExpression>
 				</subreport>
 				<staticText>
 					<reportElement x="5" y="405" width="110" height="20" uuid="c263d963-f977-4e61-b1bc-fc2210a86539"/>
@@ -1256,7 +1249,7 @@
 				</staticText>
 				<textField isBlankWhenNull="true">
 					<reportElement x="131" y="385" width="415" height="20" uuid="0b3f889f-0cbc-4cda-bde5-f94ceeeba541"/>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_FormularioRepresentanteClienteNombre}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_representante_nombre}]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement positionType="Float" x="9" y="709" width="100" height="20" uuid="af1c77f0-9fbe-4209-99f0-bc909cdb51d6"/>
@@ -1278,7 +1271,7 @@
 	<group name="grupo2">
 		<groupExpression><![CDATA[$F{itr_rmaa_id}]]></groupExpression>
 		<groupFooter>
-			<band height="613">
+			<band height="574">
 				<staticText>
 					<reportElement x="20" y="21" width="70" height="20" uuid="bbda663c-dbbb-429f-a956-432304e77787"/>
 					<textElement verticalAlignment="Middle">
@@ -1303,14 +1296,14 @@
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2B2}.equals( "NO" ) ? "X" : ""]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_accionC3}.equals( "NO" ) ? "X" : ""]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
 					<reportElement x="488" y="2" width="15" height="15" forecolor="#FF0000" uuid="0c3e1e8c-d6a8-4ac4-a40a-7afd45241f1c"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2B2}.equals( "SI" ) ? "X" : ""]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_accionC3}.equals( "SI" ) ? "X" : ""]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement x="20" y="1" width="437" height="20" uuid="a611c3f2-a640-4a30-832f-187fc4a5cb11"/>
@@ -1327,7 +1320,7 @@
 					<textElement>
 						<font size="9"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2B5AlarmaIndicar}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_C3_marca}]]></textFieldExpression>
 				</textField>
 				<rectangle>
 					<reportElement x="5" y="102" width="545" height="20" backcolor="#FFFFFF" uuid="d0a30013-2f9d-441b-b660-39a1da05706b"/>
@@ -1362,7 +1355,7 @@
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2B7}.equals( "NO" ) ? "X" : ""]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_accionC5}.equals( "NO" ) ? "X" : ""]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement x="20" y="103" width="437" height="20" uuid="efbd73e9-f57d-4a96-bed4-50ad2120cce4"/>
@@ -1376,7 +1369,7 @@
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2B7}.equals( "SI" ) ? "X" : ""]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_accionC5}.equals( "SI" ) ? "X" : ""]]></textFieldExpression>
 				</textField>
 				<rectangle>
 					<reportElement x="486" y="84" width="20" height="15" uuid="b3416816-6c84-45d4-a45d-64ae9d7ba05d"/>
@@ -1386,14 +1379,14 @@
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2B6}.equals( "SI" ) ? "X" : ""]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_accionC4}.equals( "SI" ) ? "X" : ""]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
 					<reportElement x="518" y="85" width="15" height="15" forecolor="#FF0000" uuid="6e445f66-b3e8-4494-b855-dd1ca0f5ad78"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2B6}.equals( "NO" ) ? "X" : ""]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_accionC4}.equals( "NO" ) ? "X" : ""]]></textFieldExpression>
 				</textField>
 				<line>
 					<reportElement x="0" y="142" width="555" height="1" uuid="c766f947-784a-4f2b-894c-925db62a9f21">
@@ -1446,14 +1439,14 @@
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones1C2}.equals( "NO" ) ? "X" : ""]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_accionD2}.equals( "NO" ) ? "X" : ""]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
 					<reportElement x="518" y="172" width="15" height="15" forecolor="#FF0000" uuid="6bf86930-490d-4e7d-a260-7fa3c9384465"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones1C1}.equals( "NO" ) ? "X" : ""]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_accionD1}.equals( "NO" ) ? "X" : ""]]></textFieldExpression>
 				</textField>
 				<rectangle>
 					<reportElement x="5" y="250" width="545" height="20" backcolor="#CCCCCC" uuid="9a2dabbb-cd2f-447e-bf70-e3431e1d8750"/>
@@ -1501,12 +1494,6 @@
 					<reportElement x="516" y="252" width="20" height="15" uuid="081efe8a-5a98-40da-8d8b-db5e6179a46b"/>
 				</rectangle>
 				<rectangle>
-					<reportElement x="5" y="290" width="545" height="20" backcolor="#CCCCCC" uuid="f3472fb2-6be0-441a-912e-a67198f6631a"/>
-					<graphicElement>
-						<pen lineColor="#FFFFFF"/>
-					</graphicElement>
-				</rectangle>
-				<rectangle>
 					<reportElement x="5" y="339" width="545" height="20" backcolor="#CCCCCC" uuid="63b8c006-bf70-4258-8d33-46eefeb6008c"/>
 					<graphicElement>
 						<pen lineColor="#FFFFFF"/>
@@ -1538,98 +1525,98 @@
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones1C2}.equals( "SI" ) ? "X" : ""]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_accionD2}.equals( "SI" ) ? "X" : ""]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
 					<reportElement x="488" y="171" width="15" height="15" forecolor="#FF0000" uuid="1cf0d955-b2d9-4e4b-9b30-2ac6fa5a7523"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones1C1}.equals( "SI" ) ? "X" : ""]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_accionD1}.equals( "SI" ) ? "X" : ""]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
 					<reportElement x="488" y="342" width="15" height="15" forecolor="#FF0000" uuid="2988756f-8ed1-4977-98dd-2b0293b8fc93"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones1C9}.equals( "SI" ) ? "X" : ""]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_accionE1}.equals( "SI" ) ? "X" : ""]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
 					<reportElement x="488" y="423" width="15" height="15" forecolor="#FF0000" uuid="664aa805-ebd7-46cd-98d4-c1e9ea2ab75f"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones1C11}.equals( "SI" ) ? "X" : ""]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_accionE2}.equals( "SI" ) ? "X" : ""]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
 					<reportElement x="518" y="273" width="15" height="15" forecolor="#FF0000" uuid="4ba6b30e-e294-4e19-be67-d28eea5a04b9"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones1C6}.equals( "NO" ) ? "X" : ""]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_accionD6}.equals( "NO" ) ? "X" : ""]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
 					<reportElement x="488" y="212" width="15" height="15" forecolor="#FF0000" uuid="7ac88dc8-e9cf-462b-a6c4-19f6765f1d80"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones1C3}.equals( "SI" ) ? "X" : ""]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_accionD3}.equals( "SI" ) ? "X" : ""]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
 					<reportElement x="518" y="423" width="15" height="15" forecolor="#FF0000" uuid="ee3c6d55-1048-43b0-a678-5821a5f3bb70"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones1C11}.equals( "NO" ) ? "X" : ""]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_accionE2}.equals( "NO" ) ? "X" : ""]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
 					<reportElement x="518" y="212" width="15" height="15" forecolor="#FF0000" uuid="ca20f0f0-ff6f-4bb9-931a-41cb1f1330e0"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones1C3}.equals( "NO" ) ? "X" : ""]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_accionD3}.equals( "NO" ) ? "X" : ""]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
 					<reportElement x="488" y="234" width="15" height="15" forecolor="#FF0000" uuid="7efec157-fb7c-4492-97e0-04915e666da2"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones1C4}.equals( "SI" ) ? "X" : ""]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_accionD4}.equals( "SI" ) ? "X" : ""]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
 					<reportElement x="518" y="234" width="15" height="15" forecolor="#FF0000" uuid="1a857ff1-a3f3-4425-a56c-04a8a3faa11e"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones1C4}.equals( "NO" ) ? "X" : ""]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_accionD4}.equals( "NO" ) ? "X" : ""]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
 					<reportElement x="488" y="252" width="15" height="15" forecolor="#FF0000" uuid="991628e6-f2ff-4112-9ced-d4d4b7847b05"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones1C5}.equals( "SI" ) ? "X" : ""]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_accionD5}.equals( "SI" ) ? "X" : ""]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
 					<reportElement x="518" y="342" width="15" height="15" forecolor="#FF0000" uuid="8a4a1438-346f-418a-bf16-aff1c9b9b5c9"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones1C9}.equals( "NO" ) ? "X" : ""]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_accionE1}.equals( "NO" ) ? "X" : ""]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
 					<reportElement x="488" y="273" width="15" height="15" forecolor="#FF0000" uuid="c69730c2-05f7-4c1a-a60c-22de475115c8"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones1C6}.equals( "SI" ) ? "X" : ""]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_accionD6}.equals( "SI" ) ? "X" : ""]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
 					<reportElement x="518" y="252" width="15" height="15" forecolor="#FF0000" uuid="4b74a601-8fc0-49fa-aea0-06f08d17d696"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones1C5}.equals( "NO" ) ? "X" : ""]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_accionD5}.equals( "NO" ) ? "X" : ""]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement x="21" y="190" width="437" height="20" uuid="9d58943f-019a-4e1d-9b96-e26ce848683a"/>
@@ -1653,18 +1640,11 @@
 					<text><![CDATA[DISPONIBILIDAD PARA CONSTRUCCIÓN DE BANDEJA DE CONDENSADO]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="20" y="291" width="364" height="20" uuid="1962754d-dfa8-4654-8b46-b67ea90ff507"/>
-					<textElement verticalAlignment="Middle">
-						<font size="9" isBold="false"/>
-					</textElement>
-					<text><![CDATA[REGISTRO DE LA TRAYECTORIA PARA TENDIDO DE LA TUBERÍA DE COBRE]]></text>
-				</staticText>
-				<staticText>
 					<reportElement x="20" y="421" width="437" height="20" uuid="90f250d9-6fbf-4cf6-9473-eb000a6d26ea"/>
 					<textElement verticalAlignment="Middle">
 						<font size="9" isBold="false"/>
 					</textElement>
-					<text><![CDATA[EXISTEN LÁMPARAS DE DESCARGA]]></text>
+					<text><![CDATA[EXISTE ILUMINACIÓN]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="20" y="271" width="437" height="20" uuid="23a6458e-1de4-4f8c-9885-901a1b8caad1"/>
@@ -1685,7 +1665,7 @@
 					<textElement verticalAlignment="Middle">
 						<font size="9" isBold="false"/>
 					</textElement>
-					<text><![CDATA[PROTECCIONES ELÉCTRICAS DEL GABINETE EN BUEN ESTADO]]></text>
+					<text><![CDATA[EXISTEN RACKS DE SERVIDORES]]></text>
 				</staticText>
 				<rectangle>
 					<reportElement x="5" y="486" width="545" height="20" backcolor="#CCCCCC" uuid="94a37ff4-0357-42dc-bc74-04c3da4e0924"/>
@@ -1704,14 +1684,14 @@
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones1C13}.equals( "NO" ) ? "X" : ""]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_accionE3}.equals( "NO" ) ? "X" : ""]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
 					<reportElement x="488" y="489" width="15" height="15" forecolor="#FF0000" uuid="940a48a7-1129-4a76-8308-a055f249da1e"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones1C13}.equals( "SI" ) ? "X" : ""]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_accionE3}.equals( "SI" ) ? "X" : ""]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement x="20" y="487" width="437" height="20" uuid="9968ba28-3ab8-4a44-97be-985f9ae78da5"/>
@@ -1742,7 +1722,7 @@
 					<textElement>
 						<font size="9"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2B5AlarmaIndicar}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_C3_capacidad}]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement x="20" y="41" width="70" height="20" uuid="1859773d-70ad-446d-ac5a-418291c38bb4"/>
@@ -1759,7 +1739,7 @@
 					<textElement>
 						<font size="9"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2B5AlarmaIndicar}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_C3_frecuencia}]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement x="20" y="61" width="70" height="20" uuid="96a3c0b3-18dc-4362-9f18-cea01dcaf6d6"/>
@@ -1776,7 +1756,7 @@
 					<textElement>
 						<font size="9"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2B5AlarmaIndicar}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_C3_modelo}]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
 					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToTallestObject" x="374" y="41" width="154" height="20" uuid="75890e41-168d-402b-b757-d6a53c7e5ddf">
@@ -1786,7 +1766,7 @@
 					<textElement>
 						<font size="9"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2B5AlarmaIndicar}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_C3_voltaje}]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement x="299" y="21" width="70" height="20" uuid="e62028ed-6a01-4e31-be65-3c299336fcd8"/>
@@ -1801,57 +1781,6 @@
 						<font size="9" isBold="false"/>
 					</textElement>
 					<text><![CDATA[VOLTAJE:]]></text>
-				</staticText>
-				<textField isBlankWhenNull="true">
-					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToTallestObject" x="95" y="122" width="154" height="17" uuid="28dfa3ae-8b00-430e-a79c-40723f41f74d">
-						<property name="com.jaspersoft.studio.unit.x" value="px"/>
-						<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					</reportElement>
-					<textElement>
-						<font size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2B5AlarmaIndicar}]]></textFieldExpression>
-				</textField>
-				<textField isBlankWhenNull="true">
-					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToTallestObject" x="334" y="122" width="154" height="17" uuid="c99da2d0-b043-48f7-80bf-6c1252529ba7">
-						<property name="com.jaspersoft.studio.unit.x" value="px"/>
-						<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					</reportElement>
-					<textElement>
-						<font size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2B5AlarmaIndicar}]]></textFieldExpression>
-				</textField>
-				<staticText>
-					<reportElement x="20" y="122" width="70" height="17" uuid="b5b62b0f-b066-46cc-9c79-38f388980dd9"/>
-					<textElement verticalAlignment="Middle">
-						<font size="9" isBold="false"/>
-					</textElement>
-					<text><![CDATA[Especificar:]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="259" y="122" width="70" height="17" uuid="97c3d4b6-0100-4fd2-80bd-33ad50e5b51e"/>
-					<textElement verticalAlignment="Middle">
-						<font size="9" isBold="false"/>
-					</textElement>
-					<text><![CDATA[metros:]]></text>
-				</staticText>
-				<textField isBlankWhenNull="true">
-					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToTallestObject" x="383" y="292" width="133" height="17" uuid="136814a2-7657-43da-8690-62d00c1838de">
-						<property name="com.jaspersoft.studio.unit.x" value="px"/>
-						<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					</reportElement>
-					<textElement>
-						<font size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2B5AlarmaIndicar}]]></textFieldExpression>
-				</textField>
-				<staticText>
-					<reportElement x="519" y="292" width="21" height="17" uuid="3b73d71b-5af9-4fbe-9be4-6f4e78bc71c0"/>
-					<textElement verticalAlignment="Middle">
-						<font size="9" isBold="false"/>
-					</textElement>
-					<text><![CDATA[mts.]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="5" y="319" width="460" height="17" uuid="b9cf0aeb-0034-4d84-9aad-a9334773d2e2"/>
@@ -1911,7 +1840,7 @@
 					<textElement>
 						<font size="9"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2B5AlarmaIndicar}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_E1_consumo_por_rack}]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement x="424" y="361" width="22" height="20" uuid="91152ff7-4769-4d2c-a69d-8c02da7648c0"/>
@@ -1928,7 +1857,7 @@
 					<textElement>
 						<font size="9"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2B5AlarmaIndicar}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_E1_cantidad_rack}]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
 					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToTallestObject" x="173" y="401" width="247" height="17" uuid="6f2c0769-80a1-4fa1-ae24-06ff9a56c4e5">
@@ -1938,17 +1867,17 @@
 					<textElement>
 						<font size="9"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2B5AlarmaIndicar}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_E1_tipo_servidores}]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
-					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToTallestObject" x="274" y="443" width="154" height="17" uuid="2145b32a-6c08-427c-9801-7a61c888894c">
+					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToTallestObject" x="223" y="443" width="197" height="17" uuid="2145b32a-6c08-427c-9801-7a61c888894c">
 						<property name="com.jaspersoft.studio.unit.x" value="px"/>
 						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					</reportElement>
 					<textElement>
 						<font size="9"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2B5AlarmaIndicar}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_E2_consumo_por_lampara}]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement x="433" y="443" width="22" height="20" uuid="879543a9-ccda-429b-bea1-7d965f3522a4"/>
@@ -1962,14 +1891,14 @@
 					<textElement verticalAlignment="Middle">
 						<font size="9" isBold="false"/>
 					</textElement>
-					<text><![CDATA[CANTIDAD DE LÁMPARAS DE DESCARGA]]></text>
+					<text><![CDATA[CANTIDAD DE LÁMPARAS]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="20" y="443" width="258" height="20" uuid="82a62e02-fa7c-47db-a255-828efb52f27f"/>
+					<reportElement x="20" y="443" width="185" height="20" uuid="82a62e02-fa7c-47db-a255-828efb52f27f"/>
 					<textElement verticalAlignment="Middle">
 						<font size="9" isBold="false"/>
 					</textElement>
-					<text><![CDATA[CONSUMO PROMEDIO POR LÁMPARA DE DESCARGA]]></text>
+					<text><![CDATA[CONSUMO PROMEDIO POR LÁMPARA]]></text>
 				</staticText>
 				<textField isBlankWhenNull="true">
 					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToTallestObject" x="223" y="463" width="197" height="17" uuid="1d417bac-8fc4-40e1-bd7c-2530f4777f60">
@@ -1979,17 +1908,7 @@
 					<textElement>
 						<font size="9"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2B5AlarmaIndicar}]]></textFieldExpression>
-				</textField>
-				<textField isBlankWhenNull="true">
-					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToTallestObject" x="202" y="550" width="218" height="17" uuid="75e95e1f-c867-4fe3-9e4e-546019501640">
-						<property name="com.jaspersoft.studio.unit.x" value="px"/>
-						<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					</reportElement>
-					<textElement>
-						<font size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2B5AlarmaIndicar}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_E2_cantidad_lampara}]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
 					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToTallestObject" x="142" y="510" width="277" height="17" uuid="a72f55a8-3807-47bd-80a9-098400cb3766">
@@ -1999,7 +1918,7 @@
 					<textElement>
 						<font size="9"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2B5AlarmaIndicar}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_E3_capacidad_ups}]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement x="424" y="510" width="22" height="20" uuid="45c79fd7-650d-4dba-b888-72b634d3fadf"/>
@@ -2007,13 +1926,6 @@
 						<font size="9" isBold="false"/>
 					</textElement>
 					<text><![CDATA[KVA]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="20" y="550" width="170" height="20" uuid="7e26322f-7bf9-4dae-8fed-574790d4f9b2"/>
-					<textElement verticalAlignment="Middle">
-						<font size="9" isBold="false"/>
-					</textElement>
-					<text><![CDATA[PORCENTAJE DE CARGA DEL UPS]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="20" y="530" width="109" height="20" uuid="b296a519-b6e9-4794-8559-825e4b547dc0"/>
@@ -2037,56 +1949,8 @@
 					<textElement>
 						<font size="9"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2B5AlarmaIndicar}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_E3_cantidad_ups}]]></textFieldExpression>
 				</textField>
-				<textField isBlankWhenNull="true">
-					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToTallestObject" x="278" y="570" width="141" height="17" uuid="0ea4be6a-fae7-445e-871f-4dc30f273591">
-						<property name="com.jaspersoft.studio.unit.x" value="px"/>
-						<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					</reportElement>
-					<textElement>
-						<font size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2B5AlarmaIndicar}]]></textFieldExpression>
-				</textField>
-				<staticText>
-					<reportElement x="424" y="570" width="22" height="20" uuid="d86166cd-c99e-4dc8-bcd3-469c0c50dbfb"/>
-					<textElement verticalAlignment="Middle">
-						<font size="9" isBold="false"/>
-					</textElement>
-					<text><![CDATA[KVA]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="20" y="570" width="258" height="20" uuid="d9dc64c4-0668-4636-b8f2-18fb531af4da"/>
-					<textElement verticalAlignment="Middle">
-						<font size="9" isBold="false"/>
-					</textElement>
-					<text><![CDATA[REGISTRO DE LA CARGA CONSIDERADA A FUTURO]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="425" y="550" width="22" height="20" uuid="5216230e-daeb-4d20-b1f7-c49198c7bc39"/>
-					<textElement verticalAlignment="Middle">
-						<font size="9" isBold="false"/>
-					</textElement>
-					<text><![CDATA[%]]></text>
-				</staticText>
-				<textField isBlankWhenNull="true">
-					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToTallestObject" x="70" y="590" width="470" height="17" uuid="dff27afb-b27a-49cf-8e14-5ed911f9ee4f">
-						<property name="com.jaspersoft.studio.unit.x" value="px"/>
-						<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					</reportElement>
-					<textElement>
-						<font size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2B5AlarmaIndicar}]]></textFieldExpression>
-				</textField>
-				<staticText>
-					<reportElement x="19" y="590" width="42" height="20" uuid="9b6891cf-f20e-4ba9-8b5a-aeab7798e8ea"/>
-					<textElement verticalAlignment="Middle">
-						<font size="9" isBold="false"/>
-					</textElement>
-					<text><![CDATA[OTROS:]]></text>
-				</staticText>
 			</band>
 		</groupFooter>
 	</group>
@@ -2985,7 +2849,7 @@
 					<textElement>
 						<font size="9"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones1BTempMaxima}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_C1_fase2}]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement x="413" y="536" width="35" height="20" uuid="ed6f111a-66e3-4942-bdf1-1ffb28776be3"/>
@@ -3002,7 +2866,7 @@
 					<textElement>
 						<font size="9"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones1BTempMinima}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_C1_fase3}]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
 					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToTallestObject" x="453" y="536" width="70" height="17" uuid="fc5b89ea-955a-4186-bc03-507441afa242">
@@ -3012,7 +2876,7 @@
 					<textElement>
 						<font size="9"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones1BTempSeteo}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_C1_fase1}]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement x="413" y="556" width="35" height="20" uuid="6b7234c6-54d1-46ae-99a2-d4b53bd46804"/>
@@ -3063,14 +2927,14 @@
 					<text><![CDATA[REVISIÓN DEL CALIBRE DE LOS CABLES CONDUCTORES]]></text>
 				</staticText>
 				<textField isBlankWhenNull="true">
-					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToTallestObject" x="218" y="627" width="70" height="17" uuid="449f1287-bd93-4da7-8cc9-1480da6b4d3d">
+					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToTallestObject" x="271" y="627" width="70" height="17" uuid="449f1287-bd93-4da7-8cc9-1480da6b4d3d">
 						<property name="com.jaspersoft.studio.unit.x" value="px"/>
 						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					</reportElement>
 					<textElement>
 						<font size="9"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2B8TempSeteo}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_C1_calibre_conductor_tablero}]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement x="20" y="647" width="190" height="20" uuid="d4991eab-63bb-46c7-a22e-c5a474222baf"/>
@@ -3080,21 +2944,21 @@
 					<text><![CDATA[CALIBRE DE CONDUCTOR DE NEUTRO]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="288" y="630" width="25" height="17" uuid="8797ae2b-82ca-4c9a-b504-f13b29d4b4d0"/>
+					<reportElement x="341" y="630" width="25" height="17" uuid="8797ae2b-82ca-4c9a-b504-f13b29d4b4d0"/>
 					<textElement verticalAlignment="Middle">
 						<font size="9" isBold="false"/>
 					</textElement>
 					<text><![CDATA[AWG]]></text>
 				</staticText>
 				<textField isBlankWhenNull="true">
-					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToTallestObject" x="218" y="647" width="70" height="17" uuid="0087b869-3689-4927-9c3e-4c38b33ae730">
+					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToTallestObject" x="271" y="647" width="70" height="17" uuid="0087b869-3689-4927-9c3e-4c38b33ae730">
 						<property name="com.jaspersoft.studio.unit.x" value="px"/>
 						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					</reportElement>
 					<textElement>
 						<font size="9"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2B8TempMaxima}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_C1_calibre_conductor_neutro}]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement x="20" y="667" width="190" height="20" uuid="446d51cf-3905-4fc8-bbb2-e3b7964685d7"/>
@@ -3104,31 +2968,31 @@
 					<text><![CDATA[CALIBRE DE CONDUCTOR TIERRA]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="288" y="664" width="25" height="17" uuid="7161c1c4-df23-4d5d-806a-c11afae9d9e3"/>
+					<reportElement x="341" y="664" width="25" height="17" uuid="7161c1c4-df23-4d5d-806a-c11afae9d9e3"/>
 					<textElement verticalAlignment="Middle">
 						<font size="9" isBold="false"/>
 					</textElement>
 					<text><![CDATA[AWG]]></text>
 				</staticText>
 				<textField isBlankWhenNull="true">
-					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToTallestObject" x="218" y="667" width="70" height="17" uuid="2aeb04b8-c05e-4f7b-bc0a-ff1e2a832197">
+					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToTallestObject" x="271" y="667" width="70" height="17" uuid="2aeb04b8-c05e-4f7b-bc0a-ff1e2a832197">
 						<property name="com.jaspersoft.studio.unit.x" value="px"/>
 						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					</reportElement>
 					<textElement>
 						<font size="9"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2B8TempMinima}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_C1_calibre_conductor_tierra}]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement x="20" y="627" width="190" height="20" uuid="1600cca2-e39a-4568-844a-81738f56005b"/>
+					<reportElement x="20" y="627" width="233" height="20" uuid="1600cca2-e39a-4568-844a-81738f56005b"/>
 					<textElement verticalAlignment="Middle">
 						<font size="9" isBold="false"/>
 					</textElement>
 					<text><![CDATA[CALIBRE DE CONDUCTOR TABLERO DE ACOMETIDA]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="288" y="647" width="25" height="17" uuid="97d9e9a4-2c7e-4d82-98ac-7307b8537e05"/>
+					<reportElement x="341" y="647" width="25" height="17" uuid="97d9e9a4-2c7e-4d82-98ac-7307b8537e05"/>
 					<textElement verticalAlignment="Middle">
 						<font size="9" isBold="false"/>
 					</textElement>
@@ -3158,14 +3022,14 @@
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2B1}.equals( "SI" ) ? "X" : ""]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_accionC2}.equals( "SI" ) ? "X" : ""]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
 					<reportElement x="518" y="693" width="15" height="15" forecolor="#FF0000" uuid="00b86118-3dc5-4f1b-b50d-7610a472cdeb"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2B1}.equals( "NO" ) ? "X" : ""]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_accionC2}.equals( "NO" ) ? "X" : ""]]></textFieldExpression>
 				</textField>
 				<rectangle>
 					<reportElement x="363" y="714" width="20" height="15" uuid="6d301340-2735-4600-b443-c0f4a7814337"/>
@@ -3227,28 +3091,28 @@
 						<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Center" markup="none"/>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2BMC4000}.equals( true ) ? "X" : " "]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_C2_caja_moldeada}.equals( true ) ? "X" : " "]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
 					<reportElement positionType="Float" x="253" y="715" width="15" height="15" forecolor="#FF0000" uuid="e09f55fa-7a31-40b8-b87a-05dccefdde6f">
 						<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Center" markup="none"/>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2BMC3000}.equals( true ) ? "X" : " "]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_C2_riel_din}.equals( true ) ? "X" : " "]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
 					<reportElement positionType="Float" x="124" y="715" width="15" height="15" forecolor="#FF0000" uuid="cb364940-cd58-42b9-94d7-ec8648e99710">
 						<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Center" markup="none"/>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2BM52}.equals( true ) ? "X" : " "]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_C2_enchufable}.equals( true ) ? "X" : " "]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
 					<reportElement positionType="Float" x="124" y="737" width="15" height="15" forecolor="#FF0000" uuid="eb8255dd-df8e-43e3-b8f7-98fd8470d302">
 						<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Center" markup="none"/>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2BM52}.equals( true ) ? "X" : " "]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_C2_otros}.equals( true ) ? "X" : " "]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
 					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToTallestObject" x="184" y="736" width="70" height="17" uuid="14585753-a5d1-444b-a6f3-bb63f7c07aa4">
@@ -3258,7 +3122,7 @@
 					<textElement>
 						<font size="9"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{itr_rmaa_Acciones2B8TempMinima}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_rmaa_C2_datos_otros}]]></textFieldExpression>
 				</textField>
 			</band>
 		</groupFooter>
