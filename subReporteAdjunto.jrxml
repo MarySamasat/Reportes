@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.2.final using JasperReports Library version 6.21.2-8434a0bd7c3bbc37cbf916f2968d35e4b165821a  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subReporteAdjunto" pageWidth="555" pageHeight="802" columnWidth="535" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="421181d3-0d48-4587-a8b2-5ffb26304c6c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="codigoFormulario" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pathImagen" class="java.lang.String"/>
+	<parameter name="numeroAdjuntos" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select top 4 imagen_adjunta_nombre_imagen from TE_IMAGEN_ADJUNTO where imagen_adjunta_codigo_formulario = $P{codigoFormulario}]]>
+	</queryString>
+	<field name="imagen_adjunta_nombre_imagen" class="java.lang.String"/>
+	<title>
+		<band height="24">
+			<rectangle>
+				<reportElement positionType="Float" x="0" y="0" width="555" height="24" isRemoveLineWhenBlank="true" backcolor="#000000" uuid="f7146c00-f48a-40aa-929a-b939a2d6e27d"/>
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="2" width="555" height="20" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" uuid="d2b7bcfb-20e3-4034-9f15-99a12fcfd9e6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IMÁGENES ADJUNTAS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="252">
+			<image onErrorType="Blank">
+				<reportElement isPrintRepeatedValues="false" x="112" y="4" width="333" height="244" isRemoveLineWhenBlank="true" uuid="89f04096-cea1-490a-8708-9cfb76a0ecf7"/>
+				<imageExpression><![CDATA[$P{pathImagen}+ $F{imagen_adjunta_nombre_imagen}]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+</jasperReport>
