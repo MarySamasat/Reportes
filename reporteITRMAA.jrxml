@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.2.final using JasperReports Library version 6.21.2-8434a0bd7c3bbc37cbf916f2968d35e4b165821a  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="845" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true" uuid="bfe81b1a-8066-4d4d-861b-c977d9e7d934">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="1916"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Datacenter"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<parameter name="codigoFormulario" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -19,227 +22,674 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select * from TE_FORMULARIO_ITR_RMAA inner join TB_INFORME on TE_FORMULARIO_ITR_RMAA.itr_rmaa_codigo_formulario = TB_INFORME.informe_cod_formulario where  TB_INFORME.informe_orden_servicio_codigo = $P{codigoOrdenServicio} and TB_INFORME.informe_cod_formulario = $P{codigoFormulario}]]>
+		<![CDATA[select * from TE_FORMULARIO_ITR_RMAA where  itr_rmaa_OrdenTrabajo = $P{codigoOrdenServicio} and itr_rmaa_codigo_formulario = $P{codigoFormulario}]]>
 	</queryString>
-	<field name="itr_rmaa_id" class="java.lang.Integer"/>
-	<field name="itr_rmaa_codigo_formulario" class="java.lang.String"/>
-	<field name="itr_rmaa_fecha" class="java.lang.String"/>
-	<field name="itr_rmaa_ciudad" class="java.lang.String"/>
-	<field name="itr_rmaa_Telefono" class="java.lang.String"/>
-	<field name="itr_rmaa_Fax" class="java.lang.String"/>
-	<field name="itr_rmaa_OrdenTrabajo" class="java.lang.String"/>
-	<field name="itr_rmaa_Cliente" class="java.lang.String"/>
-	<field name="itr_rmaa_Direccion" class="java.lang.String"/>
-	<field name="itr_rmaa_imagen1" class="java.lang.String"/>
-	<field name="itr_rmaa_imagen2" class="java.lang.String"/>
-	<field name="itr_rmaa_imagen3" class="java.lang.String"/>
-	<field name="itr_rmaa_accionA1" class="java.lang.String"/>
-	<field name="itr_rmaa_ancho_A1" class="java.lang.String"/>
-	<field name="itr_rmaa_profundidad_A1" class="java.lang.String"/>
-	<field name="itr_rmaa_altura_A1" class="java.lang.String"/>
-	<field name="itr_rmaa_accionA2" class="java.lang.String"/>
-	<field name="itr_rmaa_especificacion_A2" class="java.lang.String"/>
-	<field name="itr_rmaa_accionA3" class="java.lang.String"/>
-	<field name="itr_rmaa_altura_A3" class="java.lang.String"/>
-	<field name="itr_rmaa_accionA4" class="java.lang.String"/>
-	<field name="itr_rmaa_accionA5" class="java.lang.String"/>
-	<field name="itr_rmaa_dimensiones_A5" class="java.lang.String"/>
-	<field name="itr_rmaa_cantidad_A5" class="java.lang.String"/>
-	<field name="itr_rmaa_accionA6" class="java.lang.String"/>
-	<field name="itr_rmaa_especificar_A6" class="java.lang.String"/>
-	<field name="itr_rmaa_accionA7" class="java.lang.String"/>
-	<field name="itr_rmaa_accionA8" class="java.lang.String"/>
-	<field name="itr_rmaa_accionA9" class="java.lang.String"/>
-	<field name="itr_rmaa_accionA10" class="java.lang.String"/>
-	<field name="itr_rmaa_accionA11" class="java.lang.String"/>
-	<field name="itr_rmaa_accionA12" class="java.lang.String"/>
-	<field name="itr_rmaa_accionA13" class="java.lang.String"/>
-	<field name="itr_rmaa_accionB1" class="java.lang.String"/>
-	<field name="itr_rmaa_B1_confort" class="java.lang.Boolean"/>
-	<field name="itr_rmaa_B1_precision" class="java.lang.Boolean"/>
-	<field name="itr_rmaa_B1_mochila" class="java.lang.Boolean"/>
-	<field name="itr_rmaa_B1_otro" class="java.lang.Boolean"/>
-	<field name="itr_rmaa_B1_datos_otro" class="java.lang.String"/>
-	<field name="itr_rmaa_B1_marca" class="java.lang.String"/>
-	<field name="itr_rmaa_B1_capacidad" class="java.lang.String"/>
-	<field name="itr_rmaa_B1_cantidad" class="java.lang.String"/>
-	<field name="itr_rmaa_B1_normal" class="java.lang.Boolean"/>
-	<field name="itr_rmaa_B1_alarmado" class="java.lang.Boolean"/>
-	<field name="itr_rmaa_B1_apagado" class="java.lang.Boolean"/>
-	<field name="itr_rmaa_B1_danado" class="java.lang.Boolean"/>
-	<field name="itr_rmaa_accionB2" class="java.lang.String"/>
-	<field name="itr_rmaa_B2_temp_pasillo_frio" class="java.lang.String"/>
-	<field name="itr_rmaa_B2_temp_pasillo_caliente" class="java.lang.String"/>
-	<field name="itr_rmaa_B2_temp_retorno_aire" class="java.lang.String"/>
-	<field name="itr_rmaa_B2_temp_descarga_aire" class="java.lang.String"/>
-	<field name="itr_rmaa_B2_altitud_operacional" class="java.lang.String"/>
-	<field name="itr_rmaa_accionB3" class="java.lang.String"/>
-	<field name="itr_rmaa_B3_especificar" class="java.lang.String"/>
-	<field name="itr_rmaa_accionB4" class="java.lang.String"/>
-	<field name="itr_rmaa_B4_especificar" class="java.lang.String"/>
-	<field name="itr_rmaa_accionC1" class="java.lang.String"/>
-	<field name="itr_rmaa_C1_monofasica" class="java.lang.Boolean"/>
-	<field name="itr_rmaa_C1_bifasica" class="java.lang.Boolean"/>
-	<field name="itr_rmaa_C1_trifasica" class="java.lang.Boolean"/>
-	<field name="itr_rmaa_C1_fase1_neutro" class="java.lang.String"/>
-	<field name="itr_rmaa_C1_fase2_neutro" class="java.lang.String"/>
-	<field name="itr_rmaa_C1_fase3_neutro" class="java.lang.String"/>
-	<field name="itr_rmaa_C1_neutro_tierra" class="java.lang.String"/>
-	<field name="itr_rmaa_C1_fase1_fase2" class="java.lang.String"/>
-	<field name="itr_rmaa_C1_fase2_fase3" class="java.lang.String"/>
-	<field name="itr_rmaa_C1_fase3_fase1" class="java.lang.String"/>
-	<field name="itr_rmaa_C1_fase1" class="java.lang.String"/>
-	<field name="itr_rmaa_C1_fase2" class="java.lang.String"/>
-	<field name="itr_rmaa_C1_fase3" class="java.lang.String"/>
-	<field name="itr_rmaa_C1_calibre_conductor_tablero" class="java.lang.String"/>
-	<field name="itr_rmaa_C1_calibre_conductor_neutro" class="java.lang.String"/>
-	<field name="itr_rmaa_C1_calibre_conductor_tierra" class="java.lang.String"/>
-	<field name="itr_rmaa_accionC2" class="java.lang.String"/>
-	<field name="itr_rmaa_C2_enchufable" class="java.lang.Boolean"/>
-	<field name="itr_rmaa_C2_riel_din" class="java.lang.Boolean"/>
-	<field name="itr_rmaa_C2_caja_moldeada" class="java.lang.Boolean"/>
-	<field name="itr_rmaa_C2_otros" class="java.lang.Boolean"/>
-	<field name="itr_rmaa_C2_datos_otros" class="java.lang.String"/>
-	<field name="itr_rmaa_accionC3" class="java.lang.String"/>
-	<field name="itr_rmaa_C3_marca" class="java.lang.String"/>
-	<field name="itr_rmaa_C3_modelo" class="java.lang.String"/>
-	<field name="itr_rmaa_C3_capacidad" class="java.lang.String"/>
-	<field name="itr_rmaa_C3_voltaje" class="java.lang.String"/>
-	<field name="itr_rmaa_C3_frecuencia" class="java.lang.String"/>
-	<field name="itr_rmaa_accionC4" class="java.lang.String"/>
-	<field name="itr_rmaa_accionC5" class="java.lang.String"/>
-	<field name="itr_rmaa_C5_eespecificacion" class="java.lang.String"/>
-	<field name="itr_rmaa_C5_metros" class="java.lang.Boolean"/>
-	<field name="itr_rmaa_accionD1" class="java.lang.String"/>
-	<field name="itr_rmaa_accionD2" class="java.lang.String"/>
-	<field name="itr_rmaa_accionD3" class="java.lang.String"/>
-	<field name="itr_rmaa_accionD4" class="java.lang.String"/>
-	<field name="itr_rmaa_accionD5" class="java.lang.String"/>
-	<field name="itr_rmaa_accionD6" class="java.lang.String"/>
-	<field name="itr_rmaa_D6_registro_trayectoria" class="java.lang.String"/>
-	<field name="itr_rmaa_accionE1" class="java.lang.String"/>
-	<field name="itr_rmaa_E1_consumo_por_rack" class="java.lang.String"/>
-	<field name="itr_rmaa_E1_cantidad_rack" class="java.lang.String"/>
-	<field name="itr_rmaa_E1_tipo_servidores" class="java.lang.String"/>
-	<field name="itr_rmaa_accionE2" class="java.lang.String"/>
-	<field name="itr_rmaa_E2_consumo_por_lampara" class="java.lang.String"/>
-	<field name="itr_rmaa_E2_cantidad_lampara" class="java.lang.String"/>
-	<field name="itr_rmaa_accionE3" class="java.lang.String"/>
-	<field name="itr_rmaa_E3_capacidad_ups" class="java.lang.String"/>
-	<field name="itr_rmaa_E3_cantidad_ups" class="java.lang.String"/>
-	<field name="itr_rmaa_E3_carga_ups" class="java.lang.String"/>
-	<field name="itr_rmaa_E3_carga_futuro" class="java.lang.String"/>
-	<field name="itr_rmaa_E3_otros" class="java.lang.String"/>
-	<field name="itr_rmaa_observacion1" class="java.lang.String"/>
-	<field name="itr_rmaa_observacion2" class="java.lang.String"/>
-	<field name="itr_rmaa_observacion3" class="java.lang.String"/>
-	<field name="itr_rmaa_observacion4" class="java.lang.String"/>
-	<field name="itr_rmaa_conclusion" class="java.lang.String"/>
-	<field name="itr_rmaa_recomendacion" class="java.lang.String"/>
-	<field name="itr_rmaa_puntaje_param_1" class="java.lang.String"/>
-	<field name="itr_rmaa_puntaje_param_2" class="java.lang.String"/>
-	<field name="itr_rmaa_puntaje_param_3" class="java.lang.String"/>
-	<field name="itr_rmaa_puntaje_param_4" class="java.lang.String"/>
-	<field name="itr_rmaa_puntaje_param_5" class="java.lang.String"/>
-	<field name="itr_rmaa_sugerencias_comentarios" class="java.lang.String"/>
-	<field name="itr_rmaa_representante_nombre" class="java.lang.String"/>
-	<field name="itr_rmaa_representante_cargo" class="java.lang.String"/>
-	<field name="itr_rmaa_representante_firma" class="java.lang.String"/>
-	<field name="itr_rmaa_tecnico_firmesa" class="java.lang.String"/>
-	<field name="itr_rmaa_tiempo_antesala" class="java.lang.String"/>
-	<field name="itr_rmaa_hora_inicio" class="java.lang.String"/>
-	<field name="itr_rmaa_hora_fin" class="java.lang.String"/>
-	<field name="itr_rmaa_imagen1_tendido_cables" class="java.lang.String"/>
-	<field name="itr_rmaa_imagen2_tendido_cables" class="java.lang.String"/>
-	<field name="itr_rmaa_recorrido_evaporador" class="java.lang.String"/>
-	<field name="itr_rmaa_recorrido_condensador" class="java.lang.String"/>
-	<field name="itr_rmaa_recorrido_evap_condens" class="java.lang.String"/>
-	<field name="itr_rmaa_recorrido_interconexion_sistema" class="java.lang.String"/>
-	<field name="itr_rmaa_imagen1_X" class="java.lang.String"/>
-	<field name="itr_rmaa_imagen1_Y" class="java.lang.String"/>
-	<field name="itr_rmaa_imagen2_X" class="java.lang.String"/>
-	<field name="itr_rmaa_imagen2_Y" class="java.lang.String"/>
-	<field name="itr_rmaa_imagen2_Z" class="java.lang.String"/>
-	<field name="itr_rmaa_nombre_imagen1" class="java.lang.String"/>
-	<field name="itr_rmaa_nombre_imagen2" class="java.lang.String"/>
-	<field name="itr_rmaa_nombre_imagen3" class="java.lang.String"/>
-	<field name="itr_rmaa_nombre_imagen4" class="java.lang.String"/>
-	<field name="itr_rmaa_nombre_imagen5" class="java.lang.String"/>
-	<field name="itr_rmaa_sistema_climatizacion_otro" class="java.lang.String"/>
-	<field name="itr_rmaa_ruta_firma" class="java.lang.String"/>
-	<field name="itr_rmaa_serie_modificada" class="java.lang.Boolean"/>
-	<field name="itr_rmaa_numero_serie_modificado" class="java.lang.String"/>
-	<field name="itr_rmaa_tiempo_viaje" class="java.lang.String"/>
-	<field name="itr_rmaa_visita_concluida" class="java.lang.Boolean"/>
-	<field name="itr_rmaa_justificacion_visita_no_concluida" class="java.lang.String"/>
-	<field name="informe_codigo" class="java.lang.String"/>
-	<field name="informe_origen_doc" class="java.lang.String"/>
-	<field name="informe_orden_servicio_codigo" class="java.lang.String"/>
-	<field name="informe_orden_cod_doc" class="java.lang.String"/>
-	<field name="informe_orden_servico_numero" class="java.lang.String"/>
-	<field name="informe_notas" class="java.lang.String"/>
-	<field name="informe_observaciones" class="java.lang.String"/>
-	<field name="informe_pendiente" class="java.lang.String"/>
-	<field name="informe_obs2" class="java.lang.String"/>
-	<field name="informe_obs3" class="java.lang.String"/>
-	<field name="informe_fecha" class="java.sql.Timestamp"/>
-	<field name="informe_fecha_visita" class="java.sql.Timestamp"/>
-	<field name="informe_fecha_ini" class="java.sql.Timestamp"/>
-	<field name="informe_fecha_fin" class="java.sql.Timestamp"/>
-	<field name="informe_numero" class="java.lang.String"/>
-	<field name="informe_serie_cod" class="java.lang.String"/>
-	<field name="informe_hora_ini" class="java.lang.String"/>
-	<field name="informe_hora_fin" class="java.lang.String"/>
-	<field name="informe_trabajo_cod" class="java.lang.String"/>
-	<field name="informe_serie_ant" class="java.lang.String"/>
-	<field name="informe_id" class="java.lang.Integer"/>
-	<field name="informe_fecha_crea" class="java.sql.Timestamp"/>
-	<field name="informe_ciudad_crea" class="java.lang.String"/>
-	<field name="informe_usuario_crea" class="java.lang.String"/>
-	<field name="informe_pc_crea" class="java.lang.String"/>
-	<field name="informe_fecha_actualiza" class="java.sql.Timestamp"/>
-	<field name="informe_ciudad" class="java.lang.String"/>
-	<field name="informe_usuario" class="java.lang.String"/>
-	<field name="informe_pc" class="java.lang.String"/>
-	<field name="informe_inactivo" class="java.lang.Boolean"/>
-	<field name="informe_fdt" class="java.lang.String"/>
-	<field name="informe_encargado" class="java.lang.String"/>
-	<field name="informe_departamento" class="java.lang.String"/>
-	<field name="informe_seguimiento" class="java.lang.String"/>
-	<field name="informe_tipo_visita" class="java.lang.String"/>
-	<field name="informe_numero_informe" class="java.lang.String"/>
-	<field name="informe_tipo_informe" class="java.lang.String"/>
-	<field name="informe_numero_informe_word" class="java.lang.String"/>
-	<field name="informe_tipo_informe_word" class="java.lang.String"/>
-	<field name="informe_obs_seguimiento" class="java.lang.String"/>
-	<field name="informe_cod_nota" class="java.lang.String"/>
-	<field name="informe_cod_obs1" class="java.lang.String"/>
-	<field name="informe_cod_obs2" class="java.lang.String"/>
-	<field name="informe_cod_obs3" class="java.lang.String"/>
-	<field name="informe_cod_Pendientes" class="java.lang.String"/>
-	<field name="informe_cod_Encargado" class="java.lang.String"/>
-	<field name="informe_cod_Departamento" class="java.lang.String"/>
-	<field name="informe_cod_Seguimiento" class="java.lang.String"/>
-	<field name="informe_cod_tipo_visita" class="java.lang.String"/>
-	<field name="informe_garantia_reparacion" class="java.lang.Boolean"/>
-	<field name="informe_numero_factura" class="java.lang.String"/>
-	<field name="informe_fecha_factura" class="java.sql.Timestamp"/>
-	<field name="informe_meses_garantia" class="java.lang.Integer"/>
-	<field name="informe_cerrado_pendiente" class="java.lang.Boolean"/>
-	<field name="informe_cerrado_pend_cod_orden" class="java.lang.String"/>
-	<field name="informe_cerrado_pend_codigo" class="java.lang.String"/>
-	<field name="informe_cerrado_pend_numero" class="java.lang.String"/>
-	<field name="informe_cod_problema" class="java.lang.String"/>
-	<field name="informe_problema" class="java.lang.String"/>
-	<field name="informe_cod_problema_2" class="java.lang.String"/>
-	<field name="informe_problema_2" class="java.lang.String"/>
-	<field name="informe_observacion_campo" class="java.lang.String"/>
-	<field name="informe_tiempo_antesala" class="java.lang.String"/>
-	<field name="informe_tiempo_transporte" class="java.lang.String"/>
-	<field name="informe_numero_formulario" class="java.lang.String"/>
-	<field name="informe_pdf_enviado" class="java.lang.Boolean"/>
-	<field name="informe_nombre_archivo" class="java.lang.String"/>
-	<field name="informe_cod_formulario" class="java.lang.String"/>
+	<field name="itr_rmaa_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_id"/>
+	</field>
+	<field name="itr_rmaa_codigo_formulario" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_codigo_formulario"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_codigo_formulario"/>
+	</field>
+	<field name="itr_rmaa_fecha" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_fecha"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_fecha"/>
+	</field>
+	<field name="itr_rmaa_ciudad" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_ciudad"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_ciudad"/>
+	</field>
+	<field name="itr_rmaa_Telefono" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_Telefono"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_Telefono"/>
+	</field>
+	<field name="itr_rmaa_Fax" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_Fax"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_Fax"/>
+	</field>
+	<field name="itr_rmaa_OrdenTrabajo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_OrdenTrabajo"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_OrdenTrabajo"/>
+	</field>
+	<field name="itr_rmaa_Cliente" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_Cliente"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_Cliente"/>
+	</field>
+	<field name="itr_rmaa_Direccion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_Direccion"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_Direccion"/>
+	</field>
+	<field name="itr_rmaa_imagen1" class="byte[]">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_imagen1"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_imagen1"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="TE_FORMULARIO_ITR_RMAA"/>
+	</field>
+	<field name="itr_rmaa_imagen2" class="byte[]">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_imagen2"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_imagen2"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="TE_FORMULARIO_ITR_RMAA"/>
+	</field>
+	<field name="itr_rmaa_imagen3" class="byte[]">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_imagen3"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_imagen3"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="TE_FORMULARIO_ITR_RMAA"/>
+	</field>
+	<field name="itr_rmaa_accionA1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_accionA1"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_accionA1"/>
+	</field>
+	<field name="itr_rmaa_ancho_A1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_ancho_A1"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_ancho_A1"/>
+	</field>
+	<field name="itr_rmaa_profundidad_A1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_profundidad_A1"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_profundidad_A1"/>
+	</field>
+	<field name="itr_rmaa_altura_A1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_altura_A1"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_altura_A1"/>
+	</field>
+	<field name="itr_rmaa_accionA2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_accionA2"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_accionA2"/>
+	</field>
+	<field name="itr_rmaa_especificacion_A2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_especificacion_A2"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_especificacion_A2"/>
+	</field>
+	<field name="itr_rmaa_accionA3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_accionA3"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_accionA3"/>
+	</field>
+	<field name="itr_rmaa_altura_A3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_altura_A3"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_altura_A3"/>
+	</field>
+	<field name="itr_rmaa_accionA4" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_accionA4"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_accionA4"/>
+	</field>
+	<field name="itr_rmaa_accionA5" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_accionA5"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_accionA5"/>
+	</field>
+	<field name="itr_rmaa_dimensiones_A5" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_dimensiones_A5"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_dimensiones_A5"/>
+	</field>
+	<field name="itr_rmaa_cantidad_A5" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_cantidad_A5"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_cantidad_A5"/>
+	</field>
+	<field name="itr_rmaa_accionA6" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_accionA6"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_accionA6"/>
+	</field>
+	<field name="itr_rmaa_especificar_A6" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_especificar_A6"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_especificar_A6"/>
+	</field>
+	<field name="itr_rmaa_accionA7" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_accionA7"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_accionA7"/>
+	</field>
+	<field name="itr_rmaa_accionA8" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_accionA8"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_accionA8"/>
+	</field>
+	<field name="itr_rmaa_accionA9" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_accionA9"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_accionA9"/>
+	</field>
+	<field name="itr_rmaa_accionA10" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_accionA10"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_accionA10"/>
+	</field>
+	<field name="itr_rmaa_accionA11" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_accionA11"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_accionA11"/>
+	</field>
+	<field name="itr_rmaa_accionA12" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_accionA12"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_accionA12"/>
+	</field>
+	<field name="itr_rmaa_accionA13" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_accionA13"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_accionA13"/>
+	</field>
+	<field name="itr_rmaa_accionB1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_accionB1"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_accionB1"/>
+	</field>
+	<field name="itr_rmaa_B1_confort" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_B1_confort"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_B1_confort"/>
+	</field>
+	<field name="itr_rmaa_B1_precision" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_B1_precision"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_B1_precision"/>
+	</field>
+	<field name="itr_rmaa_B1_mochila" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_B1_mochila"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_B1_mochila"/>
+	</field>
+	<field name="itr_rmaa_B1_otro" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_B1_otro"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_B1_otro"/>
+	</field>
+	<field name="itr_rmaa_B1_datos_otro" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_B1_datos_otro"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_B1_datos_otro"/>
+	</field>
+	<field name="itr_rmaa_B1_marca" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_B1_marca"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_B1_marca"/>
+	</field>
+	<field name="itr_rmaa_B1_capacidad" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_B1_capacidad"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_B1_capacidad"/>
+	</field>
+	<field name="itr_rmaa_B1_cantidad" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_B1_cantidad"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_B1_cantidad"/>
+	</field>
+	<field name="itr_rmaa_B1_normal" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_B1_normal"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_B1_normal"/>
+	</field>
+	<field name="itr_rmaa_B1_alarmado" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_B1_alarmado"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_B1_alarmado"/>
+	</field>
+	<field name="itr_rmaa_B1_apagado" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_B1_apagado"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_B1_apagado"/>
+	</field>
+	<field name="itr_rmaa_B1_danado" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_B1_danado"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_B1_danado"/>
+	</field>
+	<field name="itr_rmaa_accionB2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_accionB2"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_accionB2"/>
+	</field>
+	<field name="itr_rmaa_B2_temp_pasillo_frio" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_B2_temp_pasillo_frio"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_B2_temp_pasillo_frio"/>
+	</field>
+	<field name="itr_rmaa_B2_temp_pasillo_caliente" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_B2_temp_pasillo_caliente"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_B2_temp_pasillo_caliente"/>
+	</field>
+	<field name="itr_rmaa_B2_temp_retorno_aire" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_B2_temp_retorno_aire"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_B2_temp_retorno_aire"/>
+	</field>
+	<field name="itr_rmaa_B2_temp_descarga_aire" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_B2_temp_descarga_aire"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_B2_temp_descarga_aire"/>
+	</field>
+	<field name="itr_rmaa_B2_altitud_operacional" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_B2_altitud_operacional"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_B2_altitud_operacional"/>
+	</field>
+	<field name="itr_rmaa_accionB3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_accionB3"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_accionB3"/>
+	</field>
+	<field name="itr_rmaa_B3_especificar" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_B3_especificar"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_B3_especificar"/>
+	</field>
+	<field name="itr_rmaa_accionB4" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_accionB4"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_accionB4"/>
+	</field>
+	<field name="itr_rmaa_B4_especificar" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_B4_especificar"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_B4_especificar"/>
+	</field>
+	<field name="itr_rmaa_accionC1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_accionC1"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_accionC1"/>
+	</field>
+	<field name="itr_rmaa_C1_monofasica" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_C1_monofasica"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_C1_monofasica"/>
+	</field>
+	<field name="itr_rmaa_C1_bifasica" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_C1_bifasica"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_C1_bifasica"/>
+	</field>
+	<field name="itr_rmaa_C1_trifasica" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_C1_trifasica"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_C1_trifasica"/>
+	</field>
+	<field name="itr_rmaa_C1_fase1_neutro" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_C1_fase1_neutro"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_C1_fase1_neutro"/>
+	</field>
+	<field name="itr_rmaa_C1_fase2_neutro" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_C1_fase2_neutro"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_C1_fase2_neutro"/>
+	</field>
+	<field name="itr_rmaa_C1_fase3_neutro" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_C1_fase3_neutro"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_C1_fase3_neutro"/>
+	</field>
+	<field name="itr_rmaa_C1_neutro_tierra" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_C1_neutro_tierra"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_C1_neutro_tierra"/>
+	</field>
+	<field name="itr_rmaa_C1_fase1_fase2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_C1_fase1_fase2"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_C1_fase1_fase2"/>
+	</field>
+	<field name="itr_rmaa_C1_fase2_fase3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_C1_fase2_fase3"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_C1_fase2_fase3"/>
+	</field>
+	<field name="itr_rmaa_C1_fase3_fase1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_C1_fase3_fase1"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_C1_fase3_fase1"/>
+	</field>
+	<field name="itr_rmaa_C1_fase1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_C1_fase1"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_C1_fase1"/>
+	</field>
+	<field name="itr_rmaa_C1_fase2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_C1_fase2"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_C1_fase2"/>
+	</field>
+	<field name="itr_rmaa_C1_fase3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_C1_fase3"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_C1_fase3"/>
+	</field>
+	<field name="itr_rmaa_C1_calibre_conductor_tablero" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_C1_calibre_conductor_tablero"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_C1_calibre_conductor_tablero"/>
+	</field>
+	<field name="itr_rmaa_C1_calibre_conductor_neutro" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_C1_calibre_conductor_neutro"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_C1_calibre_conductor_neutro"/>
+	</field>
+	<field name="itr_rmaa_C1_calibre_conductor_tierra" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_C1_calibre_conductor_tierra"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_C1_calibre_conductor_tierra"/>
+	</field>
+	<field name="itr_rmaa_accionC2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_accionC2"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_accionC2"/>
+	</field>
+	<field name="itr_rmaa_C2_enchufable" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_C2_enchufable"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_C2_enchufable"/>
+	</field>
+	<field name="itr_rmaa_C2_riel_din" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_C2_riel_din"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_C2_riel_din"/>
+	</field>
+	<field name="itr_rmaa_C2_caja_moldeada" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_C2_caja_moldeada"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_C2_caja_moldeada"/>
+	</field>
+	<field name="itr_rmaa_C2_otros" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_C2_otros"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_C2_otros"/>
+	</field>
+	<field name="itr_rmaa_C2_datos_otros" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_C2_datos_otros"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_C2_datos_otros"/>
+	</field>
+	<field name="itr_rmaa_accionC3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_accionC3"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_accionC3"/>
+	</field>
+	<field name="itr_rmaa_C3_marca" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_C3_marca"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_C3_marca"/>
+	</field>
+	<field name="itr_rmaa_C3_modelo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_C3_modelo"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_C3_modelo"/>
+	</field>
+	<field name="itr_rmaa_C3_capacidad" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_C3_capacidad"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_C3_capacidad"/>
+	</field>
+	<field name="itr_rmaa_C3_voltaje" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_C3_voltaje"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_C3_voltaje"/>
+	</field>
+	<field name="itr_rmaa_C3_frecuencia" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_C3_frecuencia"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_C3_frecuencia"/>
+	</field>
+	<field name="itr_rmaa_accionC4" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_accionC4"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_accionC4"/>
+	</field>
+	<field name="itr_rmaa_accionC5" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_accionC5"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_accionC5"/>
+	</field>
+	<field name="itr_rmaa_C5_eespecificacion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_C5_eespecificacion"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_C5_eespecificacion"/>
+	</field>
+	<field name="itr_rmaa_C5_metros" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_C5_metros"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_C5_metros"/>
+	</field>
+	<field name="itr_rmaa_accionD1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_accionD1"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_accionD1"/>
+	</field>
+	<field name="itr_rmaa_accionD2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_accionD2"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_accionD2"/>
+	</field>
+	<field name="itr_rmaa_accionD3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_accionD3"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_accionD3"/>
+	</field>
+	<field name="itr_rmaa_accionD4" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_accionD4"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_accionD4"/>
+	</field>
+	<field name="itr_rmaa_accionD5" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_accionD5"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_accionD5"/>
+	</field>
+	<field name="itr_rmaa_accionD6" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_accionD6"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_accionD6"/>
+	</field>
+	<field name="itr_rmaa_D6_registro_trayectoria" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_D6_registro_trayectoria"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_D6_registro_trayectoria"/>
+	</field>
+	<field name="itr_rmaa_accionE1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_accionE1"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_accionE1"/>
+	</field>
+	<field name="itr_rmaa_E1_consumo_por_rack" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_E1_consumo_por_rack"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_E1_consumo_por_rack"/>
+	</field>
+	<field name="itr_rmaa_E1_cantidad_rack" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_E1_cantidad_rack"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_E1_cantidad_rack"/>
+	</field>
+	<field name="itr_rmaa_E1_tipo_servidores" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_E1_tipo_servidores"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_E1_tipo_servidores"/>
+	</field>
+	<field name="itr_rmaa_accionE2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_accionE2"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_accionE2"/>
+	</field>
+	<field name="itr_rmaa_E2_consumo_por_lampara" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_E2_consumo_por_lampara"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_E2_consumo_por_lampara"/>
+	</field>
+	<field name="itr_rmaa_E2_cantidad_lampara" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_E2_cantidad_lampara"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_E2_cantidad_lampara"/>
+	</field>
+	<field name="itr_rmaa_accionE3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_accionE3"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_accionE3"/>
+	</field>
+	<field name="itr_rmaa_E3_capacidad_ups" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_E3_capacidad_ups"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_E3_capacidad_ups"/>
+	</field>
+	<field name="itr_rmaa_E3_cantidad_ups" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_E3_cantidad_ups"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_E3_cantidad_ups"/>
+	</field>
+	<field name="itr_rmaa_E3_carga_ups" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_E3_carga_ups"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_E3_carga_ups"/>
+	</field>
+	<field name="itr_rmaa_E3_carga_futuro" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_E3_carga_futuro"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_E3_carga_futuro"/>
+	</field>
+	<field name="itr_rmaa_E3_otros" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_E3_otros"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_E3_otros"/>
+	</field>
+	<field name="itr_rmaa_observacion1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_observacion1"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_observacion1"/>
+	</field>
+	<field name="itr_rmaa_puntaje_param_1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_puntaje_param_1"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_puntaje_param_1"/>
+	</field>
+	<field name="itr_rmaa_puntaje_param_2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_puntaje_param_2"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_puntaje_param_2"/>
+	</field>
+	<field name="itr_rmaa_puntaje_param_3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_puntaje_param_3"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_puntaje_param_3"/>
+	</field>
+	<field name="itr_rmaa_puntaje_param_4" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_puntaje_param_4"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_puntaje_param_4"/>
+	</field>
+	<field name="itr_rmaa_puntaje_param_5" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_puntaje_param_5"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_puntaje_param_5"/>
+	</field>
+	<field name="itr_rmaa_sugerencias_comentarios" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_sugerencias_comentarios"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_sugerencias_comentarios"/>
+	</field>
+	<field name="itr_rmaa_representante_nombre" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_representante_nombre"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_representante_nombre"/>
+	</field>
+	<field name="itr_rmaa_representante_cargo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_representante_cargo"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_representante_cargo"/>
+	</field>
+	<field name="itr_rmaa_representante_firma" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_representante_firma"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_representante_firma"/>
+	</field>
+	<field name="itr_rmaa_tecnico_firmesa" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_tecnico_firmesa"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_tecnico_firmesa"/>
+	</field>
+	<field name="itr_rmaa_tiempo_antesala" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_tiempo_antesala"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_tiempo_antesala"/>
+	</field>
+	<field name="itr_rmaa_hora_inicio" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_hora_inicio"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_hora_inicio"/>
+	</field>
+	<field name="itr_rmaa_hora_fin" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_hora_fin"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_hora_fin"/>
+	</field>
+	<field name="itr_rmaa_imagen1_tendido_cables" class="byte[]">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_imagen1_tendido_cables"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_imagen1_tendido_cables"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="TE_FORMULARIO_ITR_RMAA"/>
+	</field>
+	<field name="itr_rmaa_imagen2_tendido_cables" class="byte[]">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_imagen2_tendido_cables"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_imagen2_tendido_cables"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="TE_FORMULARIO_ITR_RMAA"/>
+	</field>
+	<field name="itr_rmaa_fecha_crea" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_fecha_crea"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_fecha_crea"/>
+	</field>
+	<field name="itr_rmaa_observacion2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_observacion2"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_observacion2"/>
+	</field>
+	<field name="itr_rmaa_observacion3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_observacion3"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_observacion3"/>
+	</field>
+	<field name="itr_rmaa_observacion4" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_observacion4"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_observacion4"/>
+	</field>
+	<field name="itr_rmaa_conclusion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_conclusion"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_conclusion"/>
+	</field>
+	<field name="itr_rmaa_recomendacion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_recomendacion"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_recomendacion"/>
+	</field>
+	<field name="itr_rmaa_recorrido_evaporador" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_recorrido_evaporador"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_recorrido_evaporador"/>
+	</field>
+	<field name="itr_rmaa_recorrido_condensador" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_recorrido_condensador"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_recorrido_condensador"/>
+	</field>
+	<field name="itr_rmaa_recorrido_evap_condens" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_recorrido_evap_condens"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_recorrido_evap_condens"/>
+	</field>
+	<field name="itr_rmaa_recorrido_interconexion_sistema" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_recorrido_interconexion_sistema"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_recorrido_interconexion_sistema"/>
+	</field>
+	<field name="itr_rmaa_imagen1_X" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_imagen1_X"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_imagen1_X"/>
+	</field>
+	<field name="itr_rmaa_imagen1_Y" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_imagen1_Y"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_imagen1_Y"/>
+	</field>
+	<field name="itr_rmaa_imagen2_X" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_imagen2_X"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_imagen2_X"/>
+	</field>
+	<field name="itr_rmaa_imagen2_Y" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_imagen2_Y"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_imagen2_Y"/>
+	</field>
+	<field name="itr_rmaa_imagen2_Z" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_imagen2_Z"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_imagen2_Z"/>
+	</field>
+	<field name="itr_rmaa_nombre_imagen1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_nombre_imagen1"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_nombre_imagen1"/>
+	</field>
+	<field name="itr_rmaa_nombre_imagen2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_nombre_imagen2"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_nombre_imagen2"/>
+	</field>
+	<field name="itr_rmaa_nombre_imagen3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_nombre_imagen3"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_nombre_imagen3"/>
+	</field>
+	<field name="itr_rmaa_nombre_imagen4" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_nombre_imagen4"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_nombre_imagen4"/>
+	</field>
+	<field name="itr_rmaa_nombre_imagen5" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_nombre_imagen5"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_nombre_imagen5"/>
+	</field>
+	<field name="itr_rmaa_numero_serie_modificado" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_numero_serie_modificado"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_numero_serie_modificado"/>
+	</field>
+	<field name="itr_rmaa_tiempo_viaje" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_tiempo_viaje"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_tiempo_viaje"/>
+	</field>
+	<field name="itr_rmaa_visita_concluida" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_visita_concluida"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_visita_concluida"/>
+	</field>
+	<field name="itr_rmaa_justificacion_visita_no_concluida" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_justificacion_visita_no_concluida"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_justificacion_visita_no_concluida"/>
+	</field>
+	<field name="itr_rmaa_codigo_OrdenTrabajo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_codigo_OrdenTrabajo"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_codigo_OrdenTrabajo"/>
+	</field>
+	<field name="itr_rmaa_codigo_obs_1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_codigo_obs_1"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_codigo_obs_1"/>
+	</field>
+	<field name="itr_rmaa_codigo_obs_2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_codigo_obs_2"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_codigo_obs_2"/>
+	</field>
+	<field name="itr_rmaa_codigo_obs_3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_codigo_obs_3"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_codigo_obs_3"/>
+	</field>
+	<field name="itr_rmaa_codigo_rec_1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_codigo_rec_1"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_codigo_rec_1"/>
+	</field>
+	<field name="itr_rmaa_codigo_rec_2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_codigo_rec_2"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_codigo_rec_2"/>
+	</field>
+	<field name="itr_rmaa_email_contacto2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_email_contacto2"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_email_contacto2"/>
+	</field>
+	<field name="itr_rmaa_telefono_contacto2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_telefono_contacto2"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_telefono_contacto2"/>
+	</field>
+	<field name="itr_rmaa_existe_firma" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_existe_firma"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_existe_firma"/>
+	</field>
+	<field name="itr_rmaa_fecha_inicio" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_fecha_inicio"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_fecha_inicio"/>
+	</field>
+	<field name="itr_rmaa_fecha_fin" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_fecha_fin"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_fecha_fin"/>
+	</field>
+	<field name="itr_rmaa_fecha_real" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_fecha_real"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_fecha_real"/>
+	</field>
+	<field name="itr_rmaa_codigo_serie" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_codigo_serie"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_codigo_serie"/>
+	</field>
+	<field name="itr_rmaa_numero_itr" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_numero_itr"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_numero_itr"/>
+	</field>
+	<field name="itr_rmaa_numero_adjuntos" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_numero_adjuntos"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_numero_adjuntos"/>
+	</field>
+	<field name="itr_rmaa_firma" class="byte[]">
+		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_firma"/>
+		<property name="com.jaspersoft.studio.field.label" value="itr_rmaa_firma"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="TE_FORMULARIO_ITR_RMAA"/>
+	</field>
 	<group name="grupo1">
 		<groupExpression><![CDATA[$F{itr_rmaa_FormularioOrdenTrabajo}]]></groupExpression>
 		<groupHeader>
@@ -291,7 +741,7 @@
 					<textElement>
 						<font size="7" isBold="true"/>
 					</textElement>
-					<text><![CDATA[www.firmesa.com]]></text>
+					<text><![CDATA[www.karpatty.com]]></text>
 				</staticText>
 				<textField isBlankWhenNull="true">
 					<reportElement x="395" y="18" width="153" height="39" uuid="0edab2f8-4bc1-4981-bc88-43c576a22773"/>
@@ -305,7 +755,7 @@
 						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
-					<imageExpression><![CDATA[$P{SUBREPORT_DIR} +"\\firmesaV2.png"]]></imageExpression>
+					<imageExpression><![CDATA[$P{SUBREPORT_DIR} +"karpatty.jpg"]]></imageExpression>
 				</image>
 				<rectangle radius="10">
 					<reportElement x="121" y="13" width="263" height="22" uuid="f79211d3-2584-448b-8a53-29234023955b">
