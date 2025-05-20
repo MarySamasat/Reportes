@@ -15,8 +15,8 @@
 	<parameter name="numeroFormulario" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
-	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["C:\\Users\\DIGETBI 05\\Desktop\\ReportesTerminados\\"]]></defaultValueExpression>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["\\\\192.168.20.5\\c$\\Users\\Administrador\\Documents\\FTP_Digetbi\\JRXML UPS\\"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="pathImagen" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -29,7 +29,8 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select * from TE_FORMULARIO_ITR_MS_AA inner join TB_INFORME on TE_FORMULARIO_ITR_MS_AA.itr_ms_aa_FormularioCodigo = TB_INFORME.informe_cod_formulario where  TB_INFORME.informe_orden_servicio_codigo = $P{codigoOrdenServicio} and TB_INFORME.informe_cod_formulario = $P{codigoFormulario}]]>
+		<![CDATA[select * from TE_FORMULARIO_ITR_MS_AA
+where itr_ms_aa_FormularioCodigoOrdenServicio= $P{codigoOrdenServicio} and  itr_ms_aa_FormularioCodigo= $P{codigoFormulario}]]>
 	</queryString>
 	<field name="itr_ms_aa_id" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.name" value="itr_ms_aa_id"/>
@@ -1240,426 +1241,6 @@
 		<property name="com.jaspersoft.studio.field.name" value="itr_ms_aa_tipo_controlador"/>
 		<property name="com.jaspersoft.studio.field.label" value="itr_ms_aa_tipo_controlador"/>
 	</field>
-	<field name="informe_codigo" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_codigo"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_codigo"/>
-	</field>
-	<field name="informe_origen_doc" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_origen_doc"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_origen_doc"/>
-	</field>
-	<field name="informe_orden_servicio_codigo" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_orden_servicio_codigo"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_orden_servicio_codigo"/>
-	</field>
-	<field name="informe_orden_cod_doc" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_orden_cod_doc"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_orden_cod_doc"/>
-	</field>
-	<field name="informe_orden_servico_numero" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_orden_servico_numero"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_orden_servico_numero"/>
-	</field>
-	<field name="informe_notas" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_notas"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_notas"/>
-	</field>
-	<field name="informe_observaciones" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_observaciones"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_observaciones"/>
-	</field>
-	<field name="informe_pendiente" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_pendiente"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_pendiente"/>
-	</field>
-	<field name="informe_obs2" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_obs2"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_obs2"/>
-	</field>
-	<field name="informe_obs3" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_obs3"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_obs3"/>
-	</field>
-	<field name="informe_fecha" class="java.sql.Timestamp">
-		<property name="com.jaspersoft.studio.field.name" value="informe_fecha"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_fecha"/>
-	</field>
-	<field name="informe_fecha_visita" class="java.sql.Timestamp">
-		<property name="com.jaspersoft.studio.field.name" value="informe_fecha_visita"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_fecha_visita"/>
-	</field>
-	<field name="informe_fecha_ini" class="java.sql.Timestamp">
-		<property name="com.jaspersoft.studio.field.name" value="informe_fecha_ini"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_fecha_ini"/>
-	</field>
-	<field name="informe_fecha_fin" class="java.sql.Timestamp">
-		<property name="com.jaspersoft.studio.field.name" value="informe_fecha_fin"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_fecha_fin"/>
-	</field>
-	<field name="informe_numero" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_numero"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_numero"/>
-	</field>
-	<field name="informe_serie_cod" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_serie_cod"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_serie_cod"/>
-	</field>
-	<field name="informe_hora_ini" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_hora_ini"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_hora_ini"/>
-	</field>
-	<field name="informe_hora_fin" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_hora_fin"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_hora_fin"/>
-	</field>
-	<field name="informe_trabajo_cod" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_trabajo_cod"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_trabajo_cod"/>
-	</field>
-	<field name="informe_serie_ant" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_serie_ant"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_serie_ant"/>
-	</field>
-	<field name="informe_id" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="informe_id"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_id"/>
-	</field>
-	<field name="informe_fecha_crea" class="java.sql.Timestamp">
-		<property name="com.jaspersoft.studio.field.name" value="informe_fecha_crea"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_fecha_crea"/>
-	</field>
-	<field name="informe_ciudad_crea" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_ciudad_crea"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_ciudad_crea"/>
-	</field>
-	<field name="informe_usuario_crea" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_usuario_crea"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_usuario_crea"/>
-	</field>
-	<field name="informe_pc_crea" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_pc_crea"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_pc_crea"/>
-	</field>
-	<field name="informe_fecha_actualiza" class="java.sql.Timestamp">
-		<property name="com.jaspersoft.studio.field.name" value="informe_fecha_actualiza"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_fecha_actualiza"/>
-	</field>
-	<field name="informe_ciudad" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_ciudad"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_ciudad"/>
-	</field>
-	<field name="informe_usuario" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_usuario"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_usuario"/>
-	</field>
-	<field name="informe_pc" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_pc"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_pc"/>
-	</field>
-	<field name="informe_inactivo" class="java.lang.Boolean">
-		<property name="com.jaspersoft.studio.field.name" value="informe_inactivo"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_inactivo"/>
-	</field>
-	<field name="informe_fdt" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_fdt"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_fdt"/>
-	</field>
-	<field name="informe_encargado" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_encargado"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_encargado"/>
-	</field>
-	<field name="informe_departamento" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_departamento"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_departamento"/>
-	</field>
-	<field name="informe_seguimiento" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_seguimiento"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_seguimiento"/>
-	</field>
-	<field name="informe_tipo_visita" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_tipo_visita"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_tipo_visita"/>
-	</field>
-	<field name="informe_numero_informe" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_numero_informe"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_numero_informe"/>
-	</field>
-	<field name="informe_tipo_informe" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_tipo_informe"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_tipo_informe"/>
-	</field>
-	<field name="informe_numero_informe_word" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_numero_informe_word"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_numero_informe_word"/>
-	</field>
-	<field name="informe_tipo_informe_word" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_tipo_informe_word"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_tipo_informe_word"/>
-	</field>
-	<field name="informe_obs_seguimiento" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_obs_seguimiento"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_obs_seguimiento"/>
-	</field>
-	<field name="informe_cod_nota" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_cod_nota"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_cod_nota"/>
-	</field>
-	<field name="informe_cod_obs1" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_cod_obs1"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_cod_obs1"/>
-	</field>
-	<field name="informe_cod_obs2" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_cod_obs2"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_cod_obs2"/>
-	</field>
-	<field name="informe_cod_obs3" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_cod_obs3"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_cod_obs3"/>
-	</field>
-	<field name="informe_cod_Pendientes" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_cod_Pendientes"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_cod_Pendientes"/>
-	</field>
-	<field name="informe_cod_Encargado" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_cod_Encargado"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_cod_Encargado"/>
-	</field>
-	<field name="informe_cod_Departamento" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_cod_Departamento"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_cod_Departamento"/>
-	</field>
-	<field name="informe_cod_Seguimiento" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_cod_Seguimiento"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_cod_Seguimiento"/>
-	</field>
-	<field name="informe_cod_tipo_visita" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_cod_tipo_visita"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_cod_tipo_visita"/>
-	</field>
-	<field name="informe_garantia_reparacion" class="java.lang.Boolean">
-		<property name="com.jaspersoft.studio.field.name" value="informe_garantia_reparacion"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_garantia_reparacion"/>
-	</field>
-	<field name="informe_numero_factura" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_numero_factura"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_numero_factura"/>
-	</field>
-	<field name="informe_fecha_factura" class="java.sql.Timestamp">
-		<property name="com.jaspersoft.studio.field.name" value="informe_fecha_factura"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_fecha_factura"/>
-	</field>
-	<field name="informe_meses_garantia" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="informe_meses_garantia"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_meses_garantia"/>
-	</field>
-	<field name="informe_cerrado_pendiente" class="java.lang.Boolean">
-		<property name="com.jaspersoft.studio.field.name" value="informe_cerrado_pendiente"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_cerrado_pendiente"/>
-	</field>
-	<field name="informe_cerrado_pend_cod_orden" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_cerrado_pend_cod_orden"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_cerrado_pend_cod_orden"/>
-	</field>
-	<field name="informe_cerrado_pend_codigo" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_cerrado_pend_codigo"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_cerrado_pend_codigo"/>
-	</field>
-	<field name="informe_cerrado_pend_numero" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_cerrado_pend_numero"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_cerrado_pend_numero"/>
-	</field>
-	<field name="informe_cod_problema" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_cod_problema"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_cod_problema"/>
-	</field>
-	<field name="informe_problema" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_problema"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_problema"/>
-	</field>
-	<field name="informe_cod_problema_2" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_cod_problema_2"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_cod_problema_2"/>
-	</field>
-	<field name="informe_problema_2" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_problema_2"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_problema_2"/>
-	</field>
-	<field name="informe_observacion_campo" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_observacion_campo"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_observacion_campo"/>
-	</field>
-	<field name="informe_tiempo_antesala" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_tiempo_antesala"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_tiempo_antesala"/>
-	</field>
-	<field name="informe_tiempo_transporte" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_tiempo_transporte"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_tiempo_transporte"/>
-	</field>
-	<field name="informe_numero_formulario" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_numero_formulario"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_numero_formulario"/>
-	</field>
-	<field name="informe_pdf_enviado" class="java.lang.Boolean">
-		<property name="com.jaspersoft.studio.field.name" value="informe_pdf_enviado"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_pdf_enviado"/>
-	</field>
-	<field name="informe_nombre_archivo" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_nombre_archivo"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_nombre_archivo"/>
-	</field>
-	<field name="informe_cod_formulario" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_cod_formulario"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_cod_formulario"/>
-	</field>
-	<field name="informe_pdf_comentario" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_pdf_comentario"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_pdf_comentario"/>
-	</field>
-	<field name="informe_revision_tecnico" class="java.lang.Boolean">
-		<property name="com.jaspersoft.studio.field.name" value="informe_revision_tecnico"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_revision_tecnico"/>
-	</field>
-	<field name="informe_revision_tecnico_usr" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_revision_tecnico_usr"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_revision_tecnico_usr"/>
-	</field>
-	<field name="informe_revision_adm" class="java.lang.Boolean">
-		<property name="com.jaspersoft.studio.field.name" value="informe_revision_adm"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_revision_adm"/>
-	</field>
-	<field name="informe_revision_adm_usr" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_revision_adm_usr"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_revision_adm_usr"/>
-	</field>
-	<field name="informe_hacer_FDT" class="java.lang.Boolean">
-		<property name="com.jaspersoft.studio.field.name" value="informe_hacer_FDT"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_hacer_FDT"/>
-	</field>
-	<field name="informe_FDT_Comentario" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_FDT_Comentario"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_FDT_Comentario"/>
-	</field>
-	<field name="informe_entregado" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_entregado"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_entregado"/>
-	</field>
-	<field name="informe_fecha_entrega_FDT" class="java.sql.Timestamp">
-		<property name="com.jaspersoft.studio.field.name" value="informe_fecha_entrega_FDT"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_fecha_entrega_FDT"/>
-	</field>
-	<field name="informe_apunte" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_apunte"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_apunte"/>
-	</field>
-	<field name="informe_fecha_envio_real_apps" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_fecha_envio_real_apps"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_fecha_envio_real_apps"/>
-	</field>
-	<field name="informe_alerta" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_alerta"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_alerta"/>
-	</field>
-	<field name="informe_envia_cotizacion" class="java.lang.Boolean">
-		<property name="com.jaspersoft.studio.field.name" value="informe_envia_cotizacion"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_envia_cotizacion"/>
-	</field>
-	<field name="informe_envio_cotizacion" class="java.lang.Boolean">
-		<property name="com.jaspersoft.studio.field.name" value="informe_envio_cotizacion"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_envio_cotizacion"/>
-	</field>
-	<field name="informe_comentario_valor" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_comentario_valor"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_comentario_valor"/>
-	</field>
-	<field name="informe_comentario_cotizacion" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_comentario_cotizacion"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_comentario_cotizacion"/>
-	</field>
-	<field name="informe_envio_cotizacion_fecha" class="java.sql.Timestamp">
-		<property name="com.jaspersoft.studio.field.name" value="informe_envio_cotizacion_fecha"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_envio_cotizacion_fecha"/>
-	</field>
-	<field name="informe_secuencia_envio_correo" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="informe_secuencia_envio_correo"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_secuencia_envio_correo"/>
-	</field>
-	<field name="informe_observacion_baterias" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_observacion_baterias"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_observacion_baterias"/>
-	</field>
-	<field name="informe_pendiente2" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_pendiente2"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_pendiente2"/>
-	</field>
-	<field name="informe_cod_pendiente2" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_cod_pendiente2"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_cod_pendiente2"/>
-	</field>
-	<field name="informe_cerrar_proceso_adm" class="java.lang.Boolean">
-		<property name="com.jaspersoft.studio.field.name" value="informe_cerrar_proceso_adm"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_cerrar_proceso_adm"/>
-	</field>
-	<field name="informe_revision_tecnico_adm" class="java.lang.Boolean">
-		<property name="com.jaspersoft.studio.field.name" value="informe_revision_tecnico_adm"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_revision_tecnico_adm"/>
-	</field>
-	<field name="informe_revision_tecnico_adm_usr" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_revision_tecnico_adm_usr"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_revision_tecnico_adm_usr"/>
-	</field>
-	<field name="informe_regenera_pdf" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="informe_regenera_pdf"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_regenera_pdf"/>
-	</field>
-	<field name="informe_no_concluida" class="java.lang.Boolean">
-		<property name="com.jaspersoft.studio.field.name" value="informe_no_concluida"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_no_concluida"/>
-	</field>
-	<field name="informe_reprograma" class="java.lang.Boolean">
-		<property name="com.jaspersoft.studio.field.name" value="informe_reprograma"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_reprograma"/>
-	</field>
-	<field name="informe_reprograma_fecha" class="java.sql.Timestamp">
-		<property name="com.jaspersoft.studio.field.name" value="informe_reprograma_fecha"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_reprograma_fecha"/>
-	</field>
-	<field name="informe_reprograma_comentario" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_reprograma_comentario"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_reprograma_comentario"/>
-	</field>
-	<field name="informe_reprograma_numero" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="informe_reprograma_numero"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_reprograma_numero"/>
-	</field>
-	<field name="informe_fecha_actualiza_seguimiento" class="java.sql.Timestamp">
-		<property name="com.jaspersoft.studio.field.name" value="informe_fecha_actualiza_seguimiento"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_fecha_actualiza_seguimiento"/>
-	</field>
-	<field name="Informe_usuario_actualiza_seguimiento" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="Informe_usuario_actualiza_seguimiento"/>
-		<property name="com.jaspersoft.studio.field.label" value="Informe_usuario_actualiza_seguimiento"/>
-	</field>
-	<field name="informe_numero_intento_imagen" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="informe_numero_intento_imagen"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_numero_intento_imagen"/>
-	</field>
-	<field name="informe_tiempos_itr" class="java.lang.Boolean">
-		<property name="com.jaspersoft.studio.field.name" value="informe_tiempos_itr"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_tiempos_itr"/>
-	</field>
-	<field name="informe_carga_tecnicos" class="java.lang.Boolean">
-		<property name="com.jaspersoft.studio.field.name" value="informe_carga_tecnicos"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_carga_tecnicos"/>
-	</field>
-	<field name="informe_intentos_carga_tecnicos" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="informe_intentos_carga_tecnicos"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_intentos_carga_tecnicos"/>
-	</field>
-	<field name="informe_empresa" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informe_empresa"/>
-		<property name="com.jaspersoft.studio.field.label" value="informe_empresa"/>
-	</field>
 	<group name="grupo1">
 		<groupExpression><![CDATA[$F{itr_ms_aa_FormularioOrdenTrabajo}]]></groupExpression>
 		<groupHeader>
@@ -1674,82 +1255,71 @@
 					<reportElement x="121" y="710" width="20" height="15" uuid="563927ee-cbae-44c8-9157-583e542a6c30"/>
 				</rectangle>
 				<rectangle>
-					<reportElement x="0" y="4" width="553" height="91" isPrintInFirstWholeBand="true" backcolor="#000000" uuid="8551e901-a85f-4268-b7ff-14eea2a7bbfd"/>
+					<reportElement x="111" y="8" width="442" height="67" isPrintInFirstWholeBand="true" backcolor="#000000" uuid="8551e901-a85f-4268-b7ff-14eea2a7bbfd"/>
 				</rectangle>
 				<rectangle radius="10">
-					<reportElement x="390" y="11" width="158" height="54" uuid="c85f30c1-b7a9-49c8-b03f-0db3820bd539">
+					<reportElement x="390" y="15" width="158" height="30" uuid="c85f30c1-b7a9-49c8-b03f-0db3820bd539">
 						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 				</rectangle>
 				<staticText>
-					<reportElement x="121" y="39" width="227" height="20" forecolor="#FFFFFF" uuid="863b3cf0-3184-4609-b981-998cfb3ab9a0"/>
+					<reportElement x="121" y="19" width="227" height="20" forecolor="#FFFFFF" uuid="863b3cf0-3184-4609-b981-998cfb3ab9a0"/>
 					<textElement>
 						<font size="11" isBold="true"/>
 					</textElement>
 					<text><![CDATA[INFORME DE TRABAJO REALIZADO]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="121" y="57" width="266" height="20" forecolor="#FFFFFF" uuid="0091f6cb-a194-4347-9902-0f7c51e668df"/>
+					<reportElement x="121" y="37" width="266" height="20" forecolor="#FFFFFF" uuid="0091f6cb-a194-4347-9902-0f7c51e668df"/>
 					<textElement>
 						<font size="13" isBold="true"/>
 					</textElement>
 					<text><![CDATA[VISITA DE MANTENIMIENTO PREVENTIVO]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="121" y="76" width="149" height="19" forecolor="#FFFFFF" uuid="4c0a339a-cd85-4282-bad6-3e16e74ac1ce">
+					<reportElement x="121" y="56" width="149" height="19" forecolor="#FFFFFF" uuid="4c0a339a-cd85-4282-bad6-3e16e74ac1ce">
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 					<textElement>
 						<font size="7" isBold="true"/>
 					</textElement>
-					<text><![CDATA[QUITO: 250-7219 / 250-7220 FAX: 250-9488]]></text>
+					<text><![CDATA[QUITO: (593)25103076 / (593)99292 5883]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="270" y="76" width="166" height="19" forecolor="#FFFFFF" uuid="1cb0c1f2-1b9a-442a-9c15-9c6e9f83ddfc">
+					<reportElement x="270" y="56" width="166" height="19" forecolor="#FFFFFF" uuid="1cb0c1f2-1b9a-442a-9c15-9c6e9f83ddfc">
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 					<textElement>
 						<font size="7" isBold="true"/>
 					</textElement>
-					<text><![CDATA[GUAYAQUIL: 228-4800 / 282-2564 FAX 229-2388]]></text>
+					<text><![CDATA[GUAYAQUIL: (593) 4 505 0123]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="474" y="76" width="71" height="19" forecolor="#FFFFFF" uuid="b068c268-b033-4a34-aae5-d6b597db83c5">
+					<reportElement x="474" y="52" width="71" height="19" forecolor="#FFFFFF" uuid="b068c268-b033-4a34-aae5-d6b597db83c5">
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 					<textElement>
 						<font size="7" isBold="true"/>
 					</textElement>
-					<text><![CDATA[www.firmesa.com]]></text>
+					<text><![CDATA[www.karpatty.com]]></text>
 				</staticText>
 				<textField isBlankWhenNull="true">
-					<reportElement x="395" y="18" width="153" height="39" uuid="0edab2f8-4bc1-4981-bc88-43c576a22773"/>
+					<reportElement x="395" y="16" width="153" height="28" uuid="0edab2f8-4bc1-4981-bc88-43c576a22773">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
 					<textElement verticalAlignment="Middle">
 						<font size="11" isBold="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$P{numeroFormulario}]]></textFieldExpression>
 				</textField>
 				<image>
-					<reportElement isPrintRepeatedValues="false" x="3" y="13" width="140" height="70" isPrintInFirstWholeBand="true" uuid="61c7fe54-60d1-4367-974e-318ac049c815">
+					<reportElement isPrintRepeatedValues="false" x="3" y="13" width="132" height="60" isPrintInFirstWholeBand="true" uuid="61c7fe54-60d1-4367-974e-318ac049c815">
 						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
-					<imageExpression><![CDATA[$P{SUBREPORT_DIR} +"\\karpatty.jpg"]]></imageExpression>
+					<imageExpression><![CDATA[$P{SUBREPORT_DIR} +"karpatty.jpg"]]></imageExpression>
 				</image>
-				<rectangle radius="10">
-					<reportElement x="121" y="13" width="263" height="22" uuid="f79211d3-2584-448b-8a53-29234023955b">
-						<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					</reportElement>
-				</rectangle>
-				<staticText>
-					<reportElement x="129" y="15" width="227" height="18" forecolor="#000000" uuid="ca8a8d88-ec45-459c-8205-d740512e197c">
-						<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					</reportElement>
-					<textElement>
-						<font size="11" isBold="true"/>
-					</textElement>
-					<text><![CDATA[SISTEMA DE CLIMATIZACIÓN]]></text>
-				</staticText>
 				<staticText>
 					<reportElement x="4" y="99" width="87" height="20" uuid="72b89aa9-e6e1-4065-9dca-60732a597d52"/>
 					<textElement>
@@ -1783,7 +1353,7 @@
 					<textElement>
 						<font size="9"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{informe_orden_servico_numero}.equals("") ? $F{informe_orden_servico_numero} : $F{informe_orden_cod_doc}+ "-"+$F{informe_orden_servico_numero}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{itr_ms_aa_FormularioCodigoOrdenServicio}]]></textFieldExpression>
 				</textField>
 				<subreport>
 					<reportElement x="341" y="99" width="200" height="20" uuid="9af40a46-b671-4b6a-a80e-d0e6d92c6b64"/>
@@ -1791,7 +1361,7 @@
 						<subreportParameterExpression><![CDATA[$F{itr_ms_aa_FormularioCiudad}]]></subreportParameterExpression>
 					</subreportParameter>
 					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subReporteCiudad.jasper"]]></subreportExpression>
+					<subreportExpression><![CDATA[$P{SUBREPORT_CIUDAD}]]></subreportExpression>
 				</subreport>
 				<staticText>
 					<reportElement x="4" y="140" width="87" height="20" uuid="07388ee6-6715-477f-b325-8b4725cf243a"/>
@@ -4624,7 +4194,7 @@
 					<textFieldExpression><![CDATA[$F{itr_ms_aa_AccionesFExtra1}.equals( true ) ? "X" : " "]]></textFieldExpression>
 				</textField>
 			</band>
-			<band height="802">
+			<band height="741">
 				<textField isBlankWhenNull="true">
 					<reportElement x="5" y="20" width="545" height="20" forecolor="#000000" uuid="708f3123-1023-4da8-8dd5-aa37bc1816a7"/>
 					<textElement textAlignment="Left" verticalAlignment="Middle">
@@ -4722,7 +4292,7 @@
 				</ellipse>
 				<staticText>
 					<reportElement x="324" y="290" width="10" height="15" uuid="4590e54a-7fba-4fb5-85cc-58afecdffaec"/>
-					<text><![CDATA[3]]></text>
+					<text><![CDATA[C]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="30" y="207" width="499" height="33" forecolor="#000000" uuid="f6aae741-2412-4f64-8260-9c5f920c68fc"/>
@@ -4733,7 +4303,7 @@
 				</staticText>
 				<staticText>
 					<reportElement x="275" y="332" width="10" height="15" uuid="dc4ff5d8-1ed5-4027-8734-1f51c4803700"/>
-					<text><![CDATA[1]]></text>
+					<text><![CDATA[A]]></text>
 				</staticText>
 				<ellipse>
 					<reportElement x="292" y="287" width="17" height="17" backcolor="#FF3333" uuid="c143490b-d5ad-4045-8c9f-41f21ffbf965">
@@ -4783,11 +4353,11 @@
 				</ellipse>
 				<staticText>
 					<reportElement x="298" y="290" width="10" height="15" uuid="a9fb44ef-58a8-48a7-af18-fa6c600295ce"/>
-					<text><![CDATA[2]]></text>
+					<text><![CDATA[B]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="274" y="290" width="10" height="15" uuid="7e40af64-b323-4f34-93b7-d4a4cfb5b64e"/>
-					<text><![CDATA[1]]></text>
+					<text><![CDATA[A]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="57" y="153" width="444" height="48" forecolor="#FFFFFF" uuid="44fd1578-4a35-45c0-982a-951570601a35"/>
@@ -4798,30 +4368,30 @@
 				</staticText>
 				<staticText>
 					<reportElement x="274" y="309" width="10" height="15" uuid="0d0d858b-1b82-4505-b841-e22f57c27098"/>
-					<text><![CDATA[1]]></text>
+					<text><![CDATA[A]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="299" y="310" width="10" height="15" uuid="06242a44-4699-487d-adc7-7ce77b44484d"/>
-					<text><![CDATA[2]]></text>
+					<text><![CDATA[B]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="299" y="332" width="10" height="15" uuid="43df09ad-38a9-40cf-843a-d0bbb3f1d188"/>
-					<text><![CDATA[2]]></text>
+					<text><![CDATA[B]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="324" y="332" width="10" height="15" uuid="642434c1-e990-4f8b-9e84-89a4966d665d"/>
-					<text><![CDATA[3]]></text>
+					<text><![CDATA[C]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="324" y="310" width="10" height="15" uuid="e16efc43-2ed1-48c9-9d8b-a05647b13821"/>
-					<text><![CDATA[3]]></text>
+					<text><![CDATA[C]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="16" y="246" width="272" height="20" uuid="1f2294c2-ede1-4847-8869-e15948d50b31"/>
 					<textElement verticalAlignment="Middle">
 						<font size="9" isBold="true"/>
 					</textElement>
-					<text><![CDATA[VALORE: SIENDO 1=EXCELENTE; 2=BUENO; 3=MALO]]></text>
+					<text><![CDATA[VALORE: SIENDO A=EXCELENTE; B=BUENO; C=MALO]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="16" y="285" width="234" height="20" uuid="850b3e38-149a-4948-aa74-ba4153bd1e32"/>
@@ -4888,7 +4458,7 @@
 						<subreportParameterExpression><![CDATA[$P{codigoFormulario}]]></subreportParameterExpression>
 					</subreportParameter>
 					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subReporteTecnicos.jasper"]]></subreportExpression>
+					<subreportExpression><![CDATA[$P{SUBREPORT_TECNICOS}]]></subreportExpression>
 				</subreport>
 				<staticText>
 					<reportElement x="5" y="405" width="110" height="20" uuid="c263d963-f977-4e61-b1bc-fc2210a86539"/>
@@ -7601,4 +7171,20 @@
 			</line>
 		</band>
 	</detail>
+	<summary>
+		<band height="35">
+			<subreport>
+				<reportElement x="4" y="4" width="544" height="20" uuid="bb2e6e65-1a47-4079-8a33-a75de0f6f7ee">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<subreportParameter name="codigoFormulario">
+					<subreportParameterExpression><![CDATA[$P{codigoFormulario}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_ADJUNTOS}]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
 </jasperReport>

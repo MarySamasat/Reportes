@@ -15,8 +15,8 @@
 	<parameter name="numeroFormulario" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
-	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["C:\\Users\\DIGETBI 05\\Desktop\\ReportesTerminados\\"]]></defaultValueExpression>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["\\\\192.168.20.5\\c$\\Users\\Administrador\\Documents\\FTP_Digetbi\\JRXML UPS\\"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="pathImagen" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -29,7 +29,7 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select * from TE_FORMULARIO_ITR_RMAA where  itr_rmaa_OrdenTrabajo = $P{codigoOrdenServicio} and itr_rmaa_codigo_formulario = $P{codigoFormulario}]]>
+		<![CDATA[select * from TE_FORMULARIO_ITR_RMAA where   itr_rmaa_codigo_OrdenTrabajo= $P{codigoOrdenServicio} and itr_rmaa_codigo_formulario = $P{codigoFormulario}]]>
 	</queryString>
 	<field name="itr_rmaa_id" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.name" value="itr_rmaa_id"/>
@@ -702,29 +702,30 @@
 		<groupHeader>
 			<band height="802">
 				<rectangle>
-					<reportElement x="0" y="4" width="553" height="91" isPrintInFirstWholeBand="true" backcolor="#000000" uuid="8551e901-a85f-4268-b7ff-14eea2a7bbfd"/>
+					<reportElement x="111" y="4" width="442" height="67" isPrintInFirstWholeBand="true" backcolor="#000000" uuid="8551e901-a85f-4268-b7ff-14eea2a7bbfd"/>
 				</rectangle>
 				<rectangle radius="10">
-					<reportElement x="390" y="11" width="158" height="54" uuid="c85f30c1-b7a9-49c8-b03f-0db3820bd539">
+					<reportElement x="390" y="11" width="158" height="30" uuid="c85f30c1-b7a9-49c8-b03f-0db3820bd539">
 						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 				</rectangle>
 				<staticText>
-					<reportElement x="121" y="39" width="227" height="20" forecolor="#FFFFFF" uuid="863b3cf0-3184-4609-b981-998cfb3ab9a0"/>
+					<reportElement x="121" y="15" width="227" height="20" forecolor="#FFFFFF" uuid="863b3cf0-3184-4609-b981-998cfb3ab9a0"/>
 					<textElement>
 						<font size="11" isBold="true"/>
 					</textElement>
 					<text><![CDATA[INFORME DE TRABAJO REALIZADO]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="121" y="57" width="266" height="20" forecolor="#FFFFFF" uuid="0091f6cb-a194-4347-9902-0f7c51e668df"/>
+					<reportElement x="121" y="33" width="266" height="20" forecolor="#FFFFFF" uuid="0091f6cb-a194-4347-9902-0f7c51e668df"/>
 					<textElement>
 						<font size="13" isBold="true"/>
 					</textElement>
 					<text><![CDATA[VISITA DE MEDICIÓN]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="121" y="76" width="149" height="19" forecolor="#FFFFFF" uuid="4c0a339a-cd85-4282-bad6-3e16e74ac1ce">
+					<reportElement x="121" y="52" width="149" height="19" forecolor="#FFFFFF" uuid="4c0a339a-cd85-4282-bad6-3e16e74ac1ce">
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 					<textElement>
@@ -733,7 +734,7 @@
 					<text><![CDATA[QUITO: (593)25103076 / (593)99292 5883]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="270" y="76" width="166" height="19" forecolor="#FFFFFF" uuid="1cb0c1f2-1b9a-442a-9c15-9c6e9f83ddfc">
+					<reportElement x="270" y="52" width="166" height="19" forecolor="#FFFFFF" uuid="1cb0c1f2-1b9a-442a-9c15-9c6e9f83ddfc">
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 					<textElement>
@@ -742,7 +743,7 @@
 					<text><![CDATA[GUAYAQUIL: (593) 4 505 0123]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="474" y="76" width="71" height="19" forecolor="#FFFFFF" uuid="b068c268-b033-4a34-aae5-d6b597db83c5">
+					<reportElement x="474" y="47" width="71" height="19" forecolor="#FFFFFF" uuid="b068c268-b033-4a34-aae5-d6b597db83c5">
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 					<textElement>
@@ -751,33 +752,21 @@
 					<text><![CDATA[www.karpatty.com]]></text>
 				</staticText>
 				<textField isBlankWhenNull="true">
-					<reportElement x="395" y="18" width="153" height="39" uuid="0edab2f8-4bc1-4981-bc88-43c576a22773"/>
+					<reportElement x="395" y="12" width="153" height="28" uuid="0edab2f8-4bc1-4981-bc88-43c576a22773">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
 					<textElement verticalAlignment="Middle">
 						<font size="11" isBold="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$P{numeroFormulario}]]></textFieldExpression>
 				</textField>
 				<image>
-					<reportElement isPrintRepeatedValues="false" x="3" y="13" width="140" height="70" isPrintInFirstWholeBand="true" uuid="61c7fe54-60d1-4367-974e-318ac049c815">
+					<reportElement isPrintRepeatedValues="false" x="4" y="4" width="132" height="60" isPrintInFirstWholeBand="true" uuid="61c7fe54-60d1-4367-974e-318ac049c815">
 						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 					<imageExpression><![CDATA[$P{SUBREPORT_DIR} +"karpatty.jpg"]]></imageExpression>
 				</image>
-				<rectangle radius="10">
-					<reportElement x="121" y="13" width="263" height="22" uuid="f79211d3-2584-448b-8a53-29234023955b">
-						<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					</reportElement>
-				</rectangle>
-				<staticText>
-					<reportElement x="129" y="15" width="227" height="18" forecolor="#000000" uuid="ca8a8d88-ec45-459c-8205-d740512e197c">
-						<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					</reportElement>
-					<textElement>
-						<font size="11" isBold="true"/>
-					</textElement>
-					<text><![CDATA[SISTEMA DE CLIMATIZACIÓN]]></text>
-				</staticText>
 				<staticText>
 					<reportElement x="4" y="99" width="87" height="20" uuid="72b89aa9-e6e1-4065-9dca-60732a597d52"/>
 					<textElement>
@@ -897,14 +886,6 @@
 						<pen lineWidth="3.0"/>
 					</graphicElement>
 				</rectangle>
-				<image>
-					<reportElement x="4" y="311" width="269" height="204" uuid="093f804c-a8e5-4650-9204-dc323542a826"/>
-					<imageExpression><![CDATA[new File($P{pathImagen},$F{itr_rmaa_imagen1})]]></imageExpression>
-				</image>
-				<image>
-					<reportElement x="283" y="311" width="267" height="204" uuid="2c267631-8a1d-47d5-9cf4-3334129ce0c7"/>
-					<imageExpression><![CDATA[new File($P{pathImagen},$F{itr_rmaa_imagen2})]]></imageExpression>
-				</image>
 				<textField>
 					<reportElement x="73" y="515" width="185" height="20" uuid="c3f8bdf4-4785-4495-8500-f76493ab28d5"/>
 					<textFieldExpression><![CDATA[$F{itr_rmaa_imagen1_X}]]></textFieldExpression>
@@ -967,10 +948,6 @@
 					</textElement>
 					<text><![CDATA[	CORTE-ALTURAS DEL CUARTO]]></text>
 				</staticText>
-				<image>
-					<reportElement x="155" y="613" width="244" height="185" uuid="a5f5f702-5fc4-4b83-b901-73377140d4cc"/>
-					<imageExpression><![CDATA[new File($P{pathImagen},$F{itr_rmaa_imagen3})]]></imageExpression>
-				</image>
 			</band>
 		</groupHeader>
 		<groupFooter>
@@ -3164,14 +3141,6 @@
 				</textElement>
 				<text><![CDATA[TRAYECTORIA PARA TENDIDO DE DE TUBERÍA DE COBRE]]></text>
 			</staticText>
-			<image>
-				<reportElement x="6" y="69" width="264" height="169" uuid="b5132eff-2a4a-41ce-a557-ac69cad62336"/>
-				<imageExpression><![CDATA[new File($P{pathImagen},$F{itr_rmaa_imagen1_tendido_cables})]]></imageExpression>
-			</image>
-			<image>
-				<reportElement x="285" y="69" width="264" height="169" uuid="78e20e88-13bb-4bad-8c4a-ae89c10fb510"/>
-				<imageExpression><![CDATA[new File($P{pathImagen},$F{itr_rmaa_imagen2_tendido_cables})]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement x="7" y="248" width="160" height="26" uuid="3a15eb47-5955-4e6f-9682-621ed0023a52"/>
 				<textElement verticalAlignment="Middle">

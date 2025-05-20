@@ -340,7 +340,7 @@
 				</staticText>
 				<image>
 					<reportElement x="4" y="6" width="132" height="60" uuid="25187533-11e3-4722-b91b-023fead06697"/>
-					<imageExpression><![CDATA[$P{SUBREPORT_DIR} +"\\karpatty.jpg"]]></imageExpression>
+					<imageExpression><![CDATA[$P{SUBREPORT_DIR} +"karpatty.jpg"]]></imageExpression>
 				</image>
 				<staticText>
 					<reportElement x="4" y="74" width="46" height="20" uuid="72b89aa9-e6e1-4065-9dca-60732a597d52"/>
